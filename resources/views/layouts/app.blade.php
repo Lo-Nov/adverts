@@ -12,35 +12,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 
-    <link rel='icon' href='demo/img/icon_3.png' type='image/x-icon'>
+    <link rel='icon' href='{{ asset('demo/img/icon_3.png') }}' type='image/x-icon'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.css">
+
     <title>Nakuru Adverts</title>
 
     <!-- icon fonts -->
 
-    <link rel="stylesheet" href="css/icon_fonts/css/icon_set_1.css">
-    <link rel="stylesheet" href="css/icon_fonts/css/icon_set_2.css">
-    <link rel="stylesheet" href="css/icon_fonts/css/icon_set_3.css">
-    <link rel="stylesheet" href="css/icon_fonts/css/icon_set_4.css">
+    <link rel="stylesheet" href="{{ asset('css/icon_fonts/css/icon_set_1.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/icon_fonts/css/icon_set_2.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/icon_fonts/css/icon_set_3.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/icon_fonts/css/icon_set_4.css') }}">
 
     <!-- Vendor styles -->
-    <link rel="stylesheet" href="vendors/OwlCarousel/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="vendors/OwlCarousel/assets/owl.theme.default.css">
-    <link rel="stylesheet" href="css/flaticon-font/flaticon.css">
+    <link rel="stylesheet" href="{{ asset('vendors/OwlCarousel/assets/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendors/OwlCarousel/assets/owl.theme.default.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/flaticon-font/flaticon.css') }}">
 
-    <link rel="stylesheet" href="vendors/material-design-iconic-font/css/material-design-iconic-font.min.css">
-    <link rel="stylesheet" href="vendors/animate.css/animate.min.css">
-    <link rel="stylesheet" href="vendors/jquery-scrollbar/jquery.scrollbar.css">
-    <link rel="stylesheet" href="vendors/fullcalendar/fullcalendar.min.css">
-    <link rel="stylesheet" href="vendors/select2/css/select2.min.css">
-    <link rel="stylesheet" href="vendors/dropzone/dropzone.css">
-    <link rel="stylesheet" href="vendors/nouislider/nouislider.min.css">
-    <link rel="stylesheet" href="vendors/trumbowyg/ui/trumbowyg.min.css">
-    <link rel="stylesheet" href="vendors/flatpickr/flatpickr.min.css" />
-    <link rel="stylesheet" href="vendors/rateyo/jquery.rateyo.min.css">
-    <link rel="stylesheet" href="vendors/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
+    <link rel="stylesheet" href="{{ asset('vendors/material-design-iconic-font/css/material-design-iconic-font.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendors/animate.css/animate.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendors/jquery-scrollbar/jquery.scrollbar.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendors/fullcalendar/fullcalendar.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendors/select2/css/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendors/dropzone/dropzone.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendors/nouislider/nouislider.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendors/trumbowyg/ui/trumbowyg.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendors/flatpickr/flatpickr.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('vendors/rateyo/jquery.rateyo.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendors/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css') }}">
 
     <!-- App styles -->
-    <link rel="stylesheet" href="css/app.min.css">
+    <link rel="stylesheet" href="{{ asset('css/app.min.css') }}">
 
 </head>
 
@@ -53,7 +55,7 @@
             </svg>
         </div>
         <span class="powerd-container">
-					<img src="demo/img/logo-files/NBk.png">
+					<img src="{{ asset('demo/img/logo-files/NBk.png') }}">
 					<strong>POWERED BY NBK</strong>
 				</span>
     </div>
@@ -68,7 +70,7 @@
         </div>
 
         <div class="header__logo hidden-sm-down">
-            <h1><a href="index.html"><img class="the-logo" src="demo/img/logo-files/logo-white.png"></a></h1>
+            <h1><a href="index.html"><img class="the-logo" src="{{ asset('demo/img/logo-files/logo-white.png') }}"></a></h1>
         </div>
 
         <form class="search">
@@ -108,7 +110,7 @@
 
                         <div class="listview__scroll scrollbar-inner">
                             <a href="#" class="listview__item">
-                                <img src="demo/img/profile-pics/1.jpg" class="listview__img" alt="">
+                                <img src="{{ asset('demo/img/profile-pics/1.jpg') }}" class="listview__img" alt="">
 
                                 <div class="listview__content">
                                     <div class="listview__heading">David Belle</div>
@@ -117,7 +119,7 @@
                             </a>
 
                             <a href="#" class="listview__item">
-                                <img src="demo/img/profile-pics/2.jpg" class="listview__img" alt="">
+                                <img src="{{ asset('demo/img/profile-pics/2.jpg') }}" class="listview__img" alt="">
 
                                 <div class="listview__content">
                                     <div class="listview__heading">Jonathan Morris</div>
@@ -126,7 +128,7 @@
                             </a>
 
                             <a href="#" class="listview__item">
-                                <img src="demo/img/profile-pics/3.jpg" class="listview__img" alt="">
+                                <img src="{{ asset('demo/img/profile-pics/3.jpg') }}" class="listview__img" alt="">
 
                                 <div class="listview__content">
                                     <div class="listview__heading">Fredric Mitchell Jr.</div>
@@ -135,7 +137,7 @@
                             </a>
 
                             <a href="#" class="listview__item">
-                                <img src="demo/img/profile-pics/4.jpg" class="listview__img" alt="">
+                                <img src="{{ asset('demo/img/profile-pics/4.jpg') }}" class="listview__img" alt="">
 
                                 <div class="listview__content">
                                     <div class="listview__heading">Glenn Jecobs</div>
@@ -144,7 +146,7 @@
                             </a>
 
                             <a href="#" class="listview__item">
-                                <img src="demo/img/profile-pics/5.jpg" class="listview__img" alt="">
+                                <img src="{{ asset('demo/img/profile-pics/5.jpg') }}" class="listview__img" alt="">
 
                                 <div class="listview__content">
                                     <div class="listview__heading">Bill Phillips</div>
@@ -153,7 +155,7 @@
                             </a>
 
                             <a href="#" class="listview__item">
-                                <img src="demo/img/profile-pics/1.jpg" class="listview__img" alt="">
+                                <img src="{{ asset('demo/img/profile-pics/1.jpg') }}" class="listview__img" alt="">
 
                                 <div class="listview__content">
                                     <div class="listview__heading">David Belle</div>
@@ -162,7 +164,7 @@
                             </a>
 
                             <a href="#" class="listview__item">
-                                <img src="demo/img/profile-pics/2.jpg" class="listview__img" alt="">
+                                <img src="{{ asset('demo/img/profile-pics/2.jpg') }}" class="listview__img" alt="">
 
                                 <div class="listview__content">
                                     <div class="listview__heading">Jonathan Morris</div>
@@ -171,7 +173,7 @@
                             </a>
 
                             <a href="#" class="listview__item">
-                                <img src="demo/img/profile-pics/3.jpg" class="listview__img" alt="">
+                                <img src="{{ asset('demo/img/profile-pics/3.jpg') }}" class="listview__img" alt="">
 
                                 <div class="listview__content">
                                     <div class="listview__heading">Fredric Mitchell Jr.</div>
@@ -217,28 +219,30 @@
             </div>
 
             <ul class="navigation">
-                <li class="navigation__active"><a href="index.html"><i class="flaticon-bar-chart"></i>Dashboard</a></li>
-                <li class="navigation__active"><a href="new-bill.html"><i class="flaticon-bill"></i>New Bill</a></li>
-                <li class="navigation__active"><a href="receipting-bill.html"><i class="flaticon-bill-1"></i>Payment & Receipting</a></li>
+                <li class="navigation__active"><a href="{{ route('main') }}"><i class="flaticon-bar-chart"></i>Dashboard</a></li>
+                <li class="navigation__active d-none"><a href="new-bill.html"><i class="flaticon-bill"></i>New Bill</a></li>
+                <li class="navigation__active d-none"><a href="receipting-bill.html"><i class="flaticon-bill-1"></i>Payment & Receipting</a></li>
+
                 <li class="navigation__sub">
-                    <a href="#"><i class="flaticon-register"></i>Payment edits  <i class="zmdi zmdi-caret-down drop-down-icon"></i></a>
+                    <a href="#"><i class="flaticon-paper"></i>Application  <i class="zmdi zmdi-caret-down drop-down-icon"></i></a>
                     <ul>
-                        <li><a href=""><i class="flaticon-undo mr-2"></i>Reversals</a></li>
-                        <li><a href=""><i class="flaticon-transfer mr-2"></i>Transfers</a></li>
-                        <li><a href=""><i class="zmdi zmdi-edit mr-2"></i>Non Cash Edits</a></li>
-                    </ul>
-                </li>
-                <li class="navigation__sub">
-                    <a href="#"><i class="flaticon-paper"></i>Reports  <i class="zmdi zmdi-caret-down drop-down-icon"></i></a>
-                    <ul>
-                        <li><a href="bill-raised.html">Bills raised</a></li>
-                        <li><a href="bill-receipted.html">Bills receipted</a></li>
+                        <li><a href="{{ route('apply') }}">Application</a></li>
+                        <li><a href="{{ route('advert-plates') }}">Plate</a></li>
                         <li><a href="bill-reversals.html">Bill reversals</a></li>
                         <li><a href="bill-transfer.html">Bills Transfers</a></li>
                     </ul>
                 </li>
-
                 <li class="navigation__sub">
+                    <a href="#"><i class="flaticon-register"></i>Settings  <i class="zmdi zmdi-caret-down drop-down-icon"></i></a>
+                    <ul>
+                        <li><a href="{{ route('billable-items') }}"><i class="flaticon-undo mr-2"></i>Billable Items</a></li>
+                        <li><a href=""><i class="flaticon-transfer mr-2"></i>Transfers</a></li>
+                        <li><a href=""><i class="zmdi zmdi-edit mr-2"></i>Non Cash Edits</a></li>
+                    </ul>
+                </li>
+
+
+                <li class="navigation__sub d-none">
                     <a href="#"><i class="pe-7s-user"></i>My Account <i class="zmdi zmdi-caret-down drop-down-icon pt-0"></i></a>
                     <ul>
                         <li><a href=""><i class="pe-7s-id mr-2"></i>My profile</a></li>
@@ -248,7 +252,7 @@
                     </ul>
                 </li>
 
-                <li class="navigation__sub">
+                <li class="navigation__sub d-none">
                     <a href="#"><i class="pe-7s-officers"></i>User Accounts  <i class="zmdi zmdi-caret-down drop-down-icon pt-0"></i></a>
                     <ul>
                         <li><a href=""><i class="flaticon-add mr-2"></i>New user</a></li>
@@ -256,7 +260,12 @@
 
                     </ul>
                 </li>
-                <li class="navigation__active mt-4"><a href="landing-page.html"><i class="zmdi zmdi-power"></i>Logout</a></li>
+                <li class="navigation__active mt-4">
+                    <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();" data-toggle-fullscreen="">
+                        Logout</a>
+                    <form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form></li>
             </ul>
         </div>
     </aside>
@@ -304,114 +313,85 @@
     @yield('content')
 </main>
 
-<!-- Older IE warning message -->
-<!--[if IE]>
-<div class="ie-warning">
-    <h1>Warning!!</h1>
-    <p>You are using an outdated version of Internet Explorer, please upgrade to any of the following web browsers to access this website.</p>
-
-    <div class="ie-warning__downloads">
-        <a href="http://www.google.com/chrome">
-            <img src="img/browsers/chrome.png" alt="">
-        </a>
-
-        <a href="https://www.mozilla.org/en-US/firefox/new">
-            <img src="img/browsers/firefox.png" alt="">
-        </a>
-
-        <a href="http://www.opera.com">
-            <img src="img/browsers/opera.png" alt="">
-        </a>
-
-        <a href="https://support.apple.com/downloads/safari">
-            <img src="img/browsers/safari.png" alt="">
-        </a>
-
-        <a href="https://www.microsoft.com/en-us/windows/microsoft-edge">
-            <img src="img/browsers/edge.png" alt="">
-        </a>
-
-        <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
-            <img src="img/browsers/ie.png" alt="">
-        </a>
-    </div>
-    <p>Sorry for the inconvenience!</p>
-</div>
-<![endif]-->
-
 <!-- Javascript -->
 <!-- Vendors -->
-<script src="vendors/jquery/jquery.min.js"></script>
-<script src="vendors/popper.js/popper.min.js"></script>
-<script src="vendors/bootstrap/js/bootstrap.min.js"></script>
-<script src="vendors/jquery-scrollbar/jquery.scrollbar.min.js"></script>
-<script src="vendors/jquery-scrollLock/jquery-scrollLock.min.js"></script>
+<script src="{{ asset('vendors/jquery/jquery.min.js') }}"></script>
+<script src="{{ asset('vendors/popper.js/popper.min.js') }}"></script>
+<script src="{{ asset('vendors/bootstrap/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('vendors/jquery-scrollbar/jquery.scrollbar.min.js') }}"></script>
+<script src="{{ asset('vendors/jquery-scrollLock/jquery-scrollLock.min.js') }}"></script>
 
-<script src="vendors/flot/jquery.flot.js"></script>
-<script src="vendors/flot/jquery.flot.resize.js"></script>
-<script src="vendors/flot.curvedlines/curvedLines.js"></script>
-<script src="vendors/jqvmap/jquery.vmap.min.js"></script>
-<script src="vendors/jqvmap/maps/jquery.vmap.world.js"></script>
-<script src="vendors/easy-pie-chart/jquery.easypiechart.min.js"></script>
-<script src="vendors/salvattore/salvattore.min.js"></script>
-<script src="vendors/sparkline/jquery.sparkline.min.js"></script>
-<script src="vendors/moment/moment.min.js"></script>
-<script src="vendors/fullcalendar/fullcalendar.min.js"></script>
+<script src="{{ asset('vendors/flot/jquery.flot.js') }}"></script>
+<script src="{{ asset('vendors/flot/jquery.flot.resize.js') }}"></script>
+<script src="{{ asset('vendors/flot.curvedlines/curvedLines.js') }}"></script>
+<script src="{{ asset('vendors/jqvmap/jquery.vmap.min.js') }}"></script>
+<script src="{{ asset('vendors/jqvmap/maps/jquery.vmap.world.js') }}"></script>
+<script src="{{ asset('vendors/easy-pie-chart/jquery.easypiechart.min.js') }}"></script>
+<script src="{{ asset('vendors/salvattore/salvattore.min.js') }}"></script>
+<script src="{{ asset('vendors/sparkline/jquery.sparkline.min.js') }}"></script>
+<script src="{{ asset('vendors/moment/moment.min.js') }}"></script>
+<script src="{{ asset('vendors/fullcalendar/fullcalendar.min.js') }}"></script>
 
-<script src="vendors/jquery-mask-plugin/jquery.mask.min.js"></script>
-<script src="vendors/select2/js/select2.full.min.js"></script>
-<script src="vendors/dropzone/dropzone.min.js"></script>
-<script src="vendors/moment/moment.min.js"></script>
-<script src="vendors/nouislider/nouislider.min.js"></script>
-<script src="vendors/trumbowyg/trumbowyg.min.js"></script>
-<script src="vendors/flatpickr/flatpickr.min.js"></script>
-<script src="vendors/rateyo/jquery.rateyo.min.js"></script>
-<script src="vendors/jquery-text-counter/textcounter.min.js"></script>
-<script src="vendors/autosize/autosize.min.js"></script>
-<script src="vendors/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
+<script src="{{ asset('vendors/jquery-mask-plugin/jquery.mask.min.js') }}"></script>
+<script src="{{ asset('vendors/select2/js/select2.full.min.js') }}"></script>
+<script src="{{ asset('vendors/dropzone/dropzone.min.js') }}"></script>
+<script src="{{ asset('vendors/moment/moment.min.js') }}"></script>
+<script src="{{ asset('vendors/nouislider/nouislider.min.js') }}"></script>
+<script src="{{ asset('vendors/trumbowyg/trumbowyg.min.js') }}"></script>
+<script src="{{ asset('vendors/flatpickr/flatpickr.min.js') }}"></script>
+
+<script src="{{ asset('vendors/jquery-text-counter/textcounter.min.js') }}"></script>
+<script src="{{ asset('vendors/autosize/autosize.min.js') }}"></script>
+<script src="{{ asset('vendors/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js') }}"></script>
 
 <!-- Charts and maps-->
-<script src="demo/js/flot-charts/curved-line.js"></script>
-<script src="demo/js/flot-charts/dynamic.js"></script>
-<script src="demo/js/flot-charts/line.js"></script>
-<script src="demo/js/flot-charts/chart-tooltips.js"></script>
-<script src="demo/js/other-charts.js"></script>
-<script src="demo/js/jqvmap.js"></script>
+<script src="{{ asset('demo/js/flot-charts/curved-line.js') }}"></script>
+<script src="{{ asset('demo/js/flot-charts/dynamic.js') }}"></script>
+<script src="{{ asset('demo/js/flot-charts/line.js') }}"></script>
+<script src="{{ asset('demo/js/flot-charts/chart-tooltips.js') }}"></script>
+<script src="{{ asset('demo/js/other-charts.js') }}"></script>
+<script src="{{ asset('demo/js/jqvmap.js') }}"></script>
 
 <!--high chart-->
 <script src="https://code.highcharts.com/maps/highmaps.js"></script>
 <script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
 
-<script src="vendors/highcharts/highchart.js"></script>
-<script src="vendors/highcharts/data.js"></script>
-<script src="vendors/highcharts/drilldown.js"></script>
-<script src="vendors/highcharts/exporting.js"></script>
-<script src="vendors/highcharts/export-data.js"></script>
-<script src="vendors/highcharts/accesibility.js"></script>
-<script src="js/highcharts/bullet.js"></script>
+<script src="{{ asset('vendors/highcharts/highchart.js') }}"></script>
+<script src="{{ asset('vendors/highcharts/data.js') }}"></script>
+<script src="{{ asset('vendors/highcharts/drilldown.js') }}"></script>
+<script src="{{ asset('vendors/highcharts/exporting.js') }}"></script>
+<script src="{{ asset('vendors/highcharts/export-data.js') }}"></script>
+<script src="{{ asset('vendors/highcharts/accesibility.js') }}"></script>
+<script src="{{ asset('js/highcharts/bullet.js') }}"></script>
 
-<script src="js/highcharts/highcharts-more.js"></script>
-<script src="js/highcharts/theme1.js"></script>
+<script src="{{ asset('js/highcharts/highcharts-more.js') }}"></script>
+<script src="{{ asset('js/highcharts/theme1.js') }}"></script>
 <!--owl corousel-->
-<script src="vendors/OwlCarousel/owl.carousel.min.js"></script>
+<script src="{{ asset('vendors/OwlCarousel/owl.carousel.min.js') }}"></script>
 
 
 <!-- App functions and actions -->
-<script src="js/wow.js"></script>
-<script src="js/app.min.js"></script>
-<script src="js/main.js"></script>
+<script src="{{ asset('js/wow.js') }}"></script>
+<script src="{{ asset('js/app.min.js') }}"></script>
+<script src="{{ asset('js/main.js') }}"></script>
 
-<script src="js/chart-data/revenue-targets.js"></script>
-<script src="js/chart-data/revenue-streams.js"></script>
-<script src="js/chart-data/revenue-by-bank.js"></script>
-<script src="js/chart-data/revenue-collected.js"></script>
-<script src="js/chart-data/perfomance.js"></script>
+<script src="{{ asset('js/chart-data/revenue-targets.js') }}"></script>
+<script src="{{ asset('js/chart-data/revenue-streams.js') }}"></script>
+<script src="{{ asset('js/chart-data/revenue-by-bank.js') }}"></script>
+<script src="{{ asset('js/chart-data/revenue-collected.js') }}"></script>
+<script src="{{ asset('js/chart-data/perfomance.js') }}"></script>
 
 <!--map scripts-->
 
-<script src="js/chart-data/map-data.js"></script>
+<script src="{{ asset('js/chart-data/map-data.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.js"></script>
 
-
+<!-- Vendors: Data tables -->
+<script src="{{ asset('vendors/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('vendors/datatables-buttons/dataTables.buttons.min.js') }}"></script>
+<script src="{{ asset('vendors/datatables-buttons/buttons.print.min.js') }}"></script>
+<script src="{{ asset('vendors/jszip/jszip.min.js') }}"></script>
+<script src="{{ asset('vendors/datatables-buttons/buttons.html5.min.js') }}"></script>
 
 
 
