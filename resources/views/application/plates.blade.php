@@ -96,7 +96,7 @@
                     <div class="row pt-3">
                         <div class="col-12">
                             <div class="table-responsive" id="res-table">
-                                <table class="table table-hover mt-3" id="data-table">
+                                <table class="table table-hover mt-3 table-striped" id="data-table">
                                     <thead class="thead-default">
                                     <tr>
                                         <th>ID</th>
