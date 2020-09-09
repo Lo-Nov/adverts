@@ -215,9 +215,6 @@
                 </div>
             </div>
         </div>
-
-
-
     </section>
     <script src="{{ asset('vendors/jquery/jquery.min.js') }}"></script>
 
@@ -307,21 +304,21 @@
     <script type="text/javascript">
         //getting selected test name
         // var test_name=$('#testNam').val();
-        $('.btn-confirm-booking').click(function(e){
+        $('.btn-add-applicant').click(function(e){
             e.preventDefault();
 
-            var id = $('#id').val();
-            var testingDate = $("#testingDate").val();
-            var testerComments = $("#testerComments").val();
-            var confirmedBy = $("#confirmedBy").val();
-            var status = $("#status").val();
-            var testerId = $("#testerId").val();
+            var names = $('#names').val();
+            var applicantId = $("#applicantId").val();
+            var primaryPhone = $("#primaryPhone").val();
+            var secondaryPhone = $("#secondaryPhone").val();
+            var email = $("#email").val();
+            var subCounty = $("#subCounty").val();
+            var ward = $("#ward").val();
+            var town = $("#town").val();
+            var county = $("#county").val();
+            var applicantType = $("#applicantType").val();
 
-
-
-
-
-            if(testingDate === "" || confirmedBy ==="" || testerComments === "" || status === "" || testerId==="" ) {
+            if(email === "" || names ==="" || county === "" || town === "" || primaryPhone==="" ) {
                 swal({
                     title: "Required fields",
                     text:"Please Fill All Required Field",
@@ -330,15 +327,13 @@
                 return false;
             }
 
-
-
             $('#loader14').removeClass('d-none');
             $.ajax({
 
-                url: "save-booking-confirmation" ,
+                url: "save-applicant" ,
                 type: "POST",
                 headers:{'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                data: {id:id, testingDate:testingDate, testerComments:testerComments, confirmedBy:confirmedBy,status:status, testerId:testerId},
+                data: {names:names, applicantId:applicantId, primaryPhone:primaryPhone, secondaryPhone:secondaryPhone,email:email, subCounty:subCounty,ward:ward,town:town,county:county,applicantType:applicantType},
 
                 success:function(data){
                     $("#cform")[0].reset();
@@ -372,6 +367,8 @@
 
         })
     </script>
+
+
     <script>
            function myFunction() {
                var x = document.getElementById("myDIV");

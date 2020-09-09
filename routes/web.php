@@ -40,3 +40,4 @@ Route::post('/get-address', 'MainController@getAddress')->name('get-address');
 Route::post('get-location', 'MainController@getLocation')->name('get-location');
 Route::get('add-applicant','MainController@addApplicant')->name('add-applicant');
 Route::get('get-applicant','MainController@getApplicant')->name('get-applicant');
+Route::post('save-applicant','MainController@saveApplicant')->name('save-applicant');

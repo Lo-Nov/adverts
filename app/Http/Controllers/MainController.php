@@ -8,6 +8,40 @@ use Illuminate\Support\Facades\Session;
 
 class MainController extends Controller
 {
+  public function saveApplicant(Request $request)
+  {
+    $url = $this->url = config('global.url');
+    $request->validate([
+        'names'=>'required',
+        'applicantId'=>'required',
+        'primaryPhone'=>'required',
+        'secondaryPhone'=>'required',
+        'email'=>'required',
+        'subCounty'=>'required',
+        'ward'=>'required',
+        'town'=>'required',
+        'county'=>'required',
+        'applicantType'=>'required'
+    ]);
+
+    $data = [
+        'function'=>'addApplicants',
+        'names'=>$request->names,
+        'applicantId'=>$request->applicantId,
+        'primaryPhone'=>$request->primaryPhone,
+        'secondaryPhone'=>$request->secondaryPhone,
+        'email'=>$request->email,
+        'subCounty'=>$request->subCounty,
+        'ward'=>$request->ward,
+        'town'=>$request->town,
+        'county'=>$request->county,
+        'applicantType'=>$request->applicantType,
+    ];
+    //dd($data);
+    $addApplicants = json_decode($this->alex_to_curl($url, $data));
+    //dd($child);
+    return response()->json(['success'=>$addApplicants]);
+  }
   public function getApplicant()
   {
     if (Session::get('auth_session')[0]['logged_in'] != 1) {
