@@ -8,6 +8,39 @@ use Illuminate\Support\Facades\Session;
 
 class MainController extends Controller
 {
+  public function getApplicant()
+  {
+    if (Session::get('auth_session')[0]['logged_in'] != 1) {
+        Session::put('url', url()->current());
+        return redirect()->route('login');
+    } else {
+      $url = config('global.url');
+      $data = [
+          'function'=>'getApplicants',
+      ];
+      $this->data['getApplicants'] = json_decode($this->alex_to_curl($url, $data));
+      $data = [
+          'function'=>'getApplicantTypes',
+      ];
+      $this->data['getApplicantTypes'] = json_decode($this->alex_to_curl($url, $data));
+      return view('applicant.get-applicant')->with($this->data);
+    }
+
+  }
+  public function addApplicant()
+  {
+    if (Session::get('auth_session')[0]['logged_in'] != 1) {
+        Session::put('url', url()->current());
+        return redirect()->route('login');
+    } else {
+      $url = config('global.url');
+      $data = [
+          'function'=>'getApplicantTypes',
+      ];
+      $this->data['getApplicantTypes'] = json_decode($this->alex_to_curl($url, $data));
+      return view('applicant.add-applicant')->with($this->data);
+    }
+  }
     public function getLocation(Request $request)
     {
 
@@ -92,6 +125,60 @@ class MainController extends Controller
 
 
     }
+
+    public function postApplication(Request $request){
+        $url = $this->url = config('global.url');
+
+        //dd($request->all());
+        $request->validate([
+            'uniqueAdvertCode'=>'required',
+            'categoryName'=>'required',
+            'physicalAddress'=>'required',
+            'latLng'=>'required',
+            'applicantID'=>'required',
+            'dimensions'=>'required',
+            'dimensionsUnits'=>'required',
+            'duration'=>'required',
+            'durationUnit'=>'required',
+            'artwork'=>'required',
+            'subCountyId'=>'required',
+            'wardID'=>'required'
+        ]);
+
+        $file_name = $request->file('artwork')->getClientOriginalName();
+        $file = fopen($request->artwork, 'r');
+        //dd($file);
+
+        $data = [
+            'function'=>'application',
+            'uniqueAdvertCode'=>$request->uniqueAdvertCode,
+            'categoryName'=>$request->categoryName,
+            'physicalAddress'=>$request->physicalAddress,
+            'latLng'=>$request->latLng,
+            'applicantID'=>$request->applicantID,
+            'dimensions'=>$request->dimensions,
+            'dimensionsUnits'=>$request->dimensionsUnits,
+            'duration'=>$request->duration,
+            'durationUnit'=>$request->durationUnit,
+            'subCountyId'=>$request->subCountyId,
+            'wardID'=>$request->wardID,
+        ];
+
+
+        //dd($data);
+
+        $response = Http::attach('artwork', $file, $file_name)->post($url,$data);
+//        dd($response);
+
+        $registered = json_decode($response->body());
+      //  dd($registered->message);
+        if ($registered->success === true){
+          return redirect()->back()->with('success', 'Application posted successfully !');
+        }
+    }
+
+
+
     public function postApply(Request $request){
         $url = $this->url = config('global.url');
         $request->validate([
@@ -109,6 +196,7 @@ class MainController extends Controller
             'wardID'=>'required'
         ]);
 
+
         $data = [
             'function'=>'application',
             'uniqueAdvertCode'=>$request->uniqueAdvertCode,
@@ -124,7 +212,19 @@ class MainController extends Controller
             'subCountyId'=>$request->subCountyId,
             'wardID'=>$request->wardID,
         ];
-        //dd($data);
+
+        $file_name = $request->file('artwork')->getClientOriginalName();
+        $file = fopen($request->artwork, 'r');
+        dd($file);
+
+        dd($data);
+
+        $response = Http::attach('artwork', $file, $file_name)->post($url,$data);
+
+        $registered = json_decode($response->body());
+        dd($registered);
+
+
         $application = json_decode($this->alex_to_curl($url, $data));
         //dd($application);
         return response()->json(['success'=>$application]);
@@ -147,6 +247,12 @@ class MainController extends Controller
             ];
 
             $this->data['getCategories'] = json_decode($this->alex_to_curl($url, $data));
+
+            $data = [
+                'function'=>'getApplicants',
+            ];
+
+            $this->data['getApplicants'] = json_decode($this->alex_to_curl($url, $data));
 
             //dd($this->data);
             return view('application.apply')->with($this->data);

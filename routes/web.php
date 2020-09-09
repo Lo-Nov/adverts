@@ -29,7 +29,8 @@ Route::get('/billable-items', 'MainController@billableItems')->name('billable-it
 Route::post('/billable-items', 'MainController@postBillableItems')->name('billable-items');
 Route::post('/child-items', 'MainController@childItems')->name('child-items');
 Route::get('/apply', 'MainController@apply')->name('apply');
-Route::post('/apply', 'MainController@postApply')->name('apply');
+//Route::post('/apply', 'MainController@postApply')->name('apply');
+Route::post('/post-apply', 'MainController@postApplication')->name('post-apply');
 Route::get('/get-subcategory', 'MainController@getSubcategory')->name('get-subcategory');
 Route::get('/additional-price/{code}', 'MainController@additionalPrice')->name('additional-price');
 Route::post('/additional-price', 'MainController@postAdditionalPrice')->name('additional-price');
@@ -37,5 +38,5 @@ Route::get('/advert-plates', 'MainController@advertPlates')->name('advert-plates
 Route::post('/get-address', 'MainController@getAddress')->name('get-address');
 
 Route::post('get-location', 'MainController@getLocation')->name('get-location');
-
-
+Route::get('add-applicant','MainController@addApplicant')->name('add-applicant');
+Route::get('get-applicant','MainController@getApplicant')->name('get-applicant');

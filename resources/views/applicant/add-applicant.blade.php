@@ -6,12 +6,12 @@
             <div class="row">
                 <div class="col-md-6 col-sm-12">
 							<span class="rev-title-container">
-							 <h1 class="text-capitalize stream_name m-0">Application</h1>
+							 <h1 class="text-capitalize stream_name m-0">Applicant application</h1>
 							</span>
                     <div class="">
                         <ol class="breadcrumb border-0">
                             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                            <li class="breadcrumb-item active">New Application</li>
+                            <li class="breadcrumb-item active">New Applicant</li>
 
                         </ol>
 
@@ -25,24 +25,12 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>
-                                        <strong> Choose your Physical Address</strong>  <strong class="text-danger">*</strong>
-                                    </label>
-                                    <input type="text" class="form-control  pl-3" placeholder="Enter your location and press Enter" id="address" onchange="myFunction()">
-                                        <span class="d-none" id="loader14" >
-                                        <img src="{{ asset('img/loader/loader.gif') }}" style="size: 10px" />
-                                        </span>
-                                </div>
-                            </div>
+
                             <div class="col-md-12">
                                 <div class="bill-details h-100 bill-checkout">
                                     <div class="contact-header">
-                                        <h4>Application details</h4>
+                                        <h4>Applicant details</h4>
                                         <hr>
-
-
                                         <br><br>
                                     </div>
                                     @if(session()->has('success'))
@@ -62,147 +50,104 @@
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label>
-                                                                <strong>Advert Code</strong>  <strong class="text-danger">*</strong>
+                                                                <strong>Names</strong>  <strong class="text-danger">*</strong>
                                                             </label>
-                                                            <input type="text" class="form-control  pl-3" placeholder="Enter uniqueAdvertCode" id="uniqueAdvertCode" name="uniqueAdvertCode" required>
+                                                            <input type="text" class="form-control  pl-3" placeholder="Enter names" id="names" name="names" required>
                                                         </div>
                                                     </div>
 
                                                     <div class="col-md-4">
                                                         <div class="form-group">
-                                                            <div class="form-group">
+                                                            <label>
+                                                                <strong>applicantId</strong>  <strong class="text-danger">*</strong>
+                                                            </label>
+                                                            <input type="text" class="form-control  pl-3" placeholder="Enter names" id="applicantId" name="applicantId" required>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label>
+                                                                <strong>applicantId</strong>  <strong class="text-danger">*</strong>
+                                                            </label>
+                                                            <input type="text" class="form-control  pl-3" placeholder="Enter names" id="primaryPhone" name="primaryPhone" required>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label>
+                                                                <strong>secondaryPhone</strong>  <strong class="text-danger">*</strong>
+                                                            </label>
+                                                            <input type="text" class="form-control  pl-3" placeholder="Enter names" id="secondaryPhone" name="secondaryPhone" required>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label>
+                                                                <strong>email</strong>  <strong class="text-danger">*</strong>
+                                                            </label>
+                                                            <input type="email" class="form-control  pl-3" placeholder="Enter names" id="email" name="email" required>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
                                                                 <label>
-                                                                    <strong>category Name</strong>  <strong class="text-danger">*</strong>
+                                                                    <strong>subCounty</strong>  <strong class="text-danger">*</strong>
                                                                 </label>
-                                                                <select class="selectpicker form-control show-tick" id="parentId" name="parentId" data-live-search="true">
-                                                                    <option data-tokens="select">-- Select Category Name--</option>
-                                                                        @foreach($getCategories->data as $item)
-                                                                            <option value="{{ $item->parentId }}">{{ $item->itemName }}</option>
-                                                                        @endforeach
+                                                                <select  id="subCounty" name="subCounty" class="first-required form-control ">
+                                                                    <option >-- Sub Category Name --</option>
+                                                                    <option>Naivasha </option>
                                                                 </select>
-                                                            </div>
                                                         </div>
                                                     </div>
+
                                                     <div class="col-md-4">
                                                         <div class="form-group">
-                                                            <div class="form-group">
                                                                 <label>
-                                                                    <strong>Sub Category Name</strong>  <strong class="text-danger">*</strong>
+                                                                    <strong>ward</strong>  <strong class="text-danger">*</strong>
                                                                 </label>
-                                                                <select  id="categoryName" name="categoryName" class="first-required form-control ">
-                                                                    <option>-- Sub Category Name --</option>
+                                                                <select  id="ward" name="ward" class="first-required form-control ">
+                                                                    <option >-- select ward --</option>
+                                                                    <option>Olkaria </option>
+                                                                    <option>Hell's gate </option>
                                                                 </select>
-                                                            </div>
                                                         </div>
                                                     </div>
+
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label>
-                                                                <strong>physicalAddress</strong>  <strong class="text-danger">*</strong>
+                                                                <strong>town</strong>  <strong class="text-danger">*</strong>
                                                             </label>
-                                                            <select  id="physicalAddress" name="physicalAddress" class="first-required form-control">
-
-                                                            </select>
+                                                            <input type="text" class="form-control  pl-3" placeholder="Enter names" id="town" name="town" required>
                                                         </div>
                                                     </div>
 
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label>
-                                                                <strong>Latitude / Longitude</strong>  <strong class="text-danger">*</strong>
+                                                                <strong>county</strong>  <strong class="text-danger">*</strong>
                                                             </label>
-                                                            <div id="map"></div>
-                                                            <input type="text" class="form-control  pl-3" placeholder="Enter customer's name" name="latLng" id="latLng" readonly required >
+                                                            <input type="text" class="form-control  pl-3" placeholder="Enter names" id="county" name="county" required>
                                                         </div>
                                                     </div>
 
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label>
-                                                                <strong>Applicant </strong>  <strong class="text-danger">*</strong>
-                                                            </label>
-                                                            <select class="selectpicker form-control show-tick" id="applicantID" name="applicantID" data-live-search="true">
-                                                                <option data-tokens="select">-- Select applicantID--</option>
-                                                                @foreach($getApplicants->data as $item)
-                                                                    <option value="{{ $item->applicantId }}">{{ $item->names }}</option>
-                                                                @endforeach
-                                                            </select>
-                                                        </div>
-                                                    </div>
-
-
-                                                    <div class="col-md-4">
-                                                        <div class="form-group">
-                                                            <label>
-                                                                <strong>Dimensions</strong>  <strong class="text-danger">*</strong>
-                                                            </label>
-                                                            <input type="text" class="form-control  pl-3" placeholder="Enter dimention" id="dimensions" name="dimensions" required>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-md-4">
-                                                        <div class="form-group">
-                                                            <label>
-                                                                <strong>Dimensions Units</strong>  <strong class="text-danger">*</strong>
-                                                            </label>
-                                                            <select class="selectpicker form-control show-tick" id="dimensionsUnits" name="dimensionsUnits" data-live-search="true">
-                                                                            <option data-tokens="select">-- Select dimensions units--</option>
-                                                                            <option>Meters</option>
-                                                                            <option>Centimeters</option>
-                                                                            <option>Milimeters</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <div class="form-group">
-                                                            <label>
-                                                                <strong>Duration</strong>  <strong class="text-danger">*</strong>
-                                                            </label>
-                                                            <input type="text" class="form-control  pl-3" placeholder="Enter duration" id="duration" name="duration" required>
-                                                        </div>
-                                                    </div>
-
-
-
-                                                    <div class="col-md-4">
-                                                        <div class="form-group">
-                                                            <label>
-                                                                <strong>Duration Unit</strong>  <strong class="text-danger">*</strong>
+                                                                <strong>Applicant Type</strong>  <strong class="text-danger">*</strong>
                                                             </label>
                                                             <select class="selectpicker form-control show-tick" id="durationUnit" name="durationUnit" data-live-search="true">
-                                                                <option data-tokens="select">-- Select duration unit--</option>
-                                                                @foreach($getDuration->data as $item)
-                                                                    <option value="{{ $item->duration }}">{{ $item->duration }}</option>
+                                                                <option data-tokens="select">-- Select applicant type--</option>
+                                                                @foreach($getApplicantTypes->data as $item)
+                                                                    <option value="{{ $item->id }}">{{ $item->applicantType }}</option>
                                                                 @endforeach
                                                             </select>
-                                                        </div>
-                                                    </div>
-
-
-                                                    <div class="col-md-4">
-                                                        <div class="form-group">
-                                                            <label>
-                                                                <strong>Artwork</strong>  <strong class="text-danger">*</strong>
-                                                            </label>
-                                                            <input type="file" id="artwork"  name="artwork" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <div class="form-group">
-                                                            <label>
-                                                                <strong>Sub County</strong>  <strong class="text-danger">*</strong>
-                                                            </label>
-                                                            <input type="text" class="form-control  pl-3" placeholder="Sub County" name="subCountyId" id="subCountyId" readonly required>
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <div class="form-group">
-                                                            <label>
-                                                                <strong>Ward / Town</strong>  <strong class="text-danger">*</strong>
-                                                            </label>
-                                                            <input type="text" class="form-control  pl-3" placeholder="Ward/Town" name="wardID" readonly id="wardID" required>
-
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
@@ -215,7 +160,7 @@
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <button type="submit" class="btn btn-success">
-                                                            <i class="zmdi zmdi-save"></i> Save Application</button>
+                                                            <i class="zmdi zmdi-save"></i> Save Applicant</button>
 {{--                                                            <span class="d-none" id="loader14" >--}}
 {{--                                                            <img src="{{ asset('img/loader/loader.gif') }}" style="size: 20px" />--}}
 {{--                                                            </span>--}}
@@ -241,135 +186,7 @@
             <p>Powered by RevenueSure</p>
         </footer>
     </section>
-    <!-- Modal -->
-    <!-- editing modal -->
-    <div class="modal fade" id="edit-bill-item" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Edit Billing Item</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p>Make changes to initially submitted Details</p>
-                    <form class="with-mpesa animated fade-in">
-                        <div class="row" >
 
-                            <div class="col-sm-12">
-                                <div class="form-group">
-                                    <label>
-                                        <strong>Account Name</strong>  <strong class="text-danger">*</strong>
-                                        <p class="d-none"><small>Select account name from options bellow</small></p>
-                                    </label>
-                                    <select class="selectpicker form-control show-tick" data-live-search="true">
-                                        <option data-tokens="select">-- Select Account Name --</option>
-                                        <option data-tokens="option 1">option 1</option>
-                                        <option data-tokens="option 2">option 2</option>
-                                        <option data-tokens="option 3">option 3</option>
-                                        <option data-tokens="option 4">option 4</option>
-
-                                    </select>
-
-                                </div>
-                            </div>
-
-                            <div class="col-sm-12">
-                                <div class="form-group">
-                                    <label>
-                                        <strong>Income Type</strong>  <strong class="text-danger">*</strong>
-                                        <p class="d-none"><small>Select income type from Drop down</small></p>
-                                    </label>
-                                    <select class="selectpicker form-control show-tick" data-live-search="true">
-                                        <option data-tokens="select">-- Select Income Type --</option>
-                                        <option data-tokens="option 1">option 1</option>
-                                        <option data-tokens="option 2">option 2</option>
-                                        <option data-tokens="option 3">option 3</option>
-                                        <option data-tokens="option 4">option 4</option>
-
-                                    </select>
-
-                                </div>
-                            </div>
-
-                            <div class="col-sm-12">
-                                <div class="row">
-                                    <div class="col-sm-12 col-md-6">
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <div class="form-group">
-                                                    <label>
-                                                        <strong>Sub County</strong>  <strong class="text-danger">*</strong>
-                                                        <p class="d-none"><small>Select income type from Drop down</small></p>
-                                                    </label>
-                                                    <select class="selectpicker form-control show-tick" data-live-search="true">
-                                                        <option data-tokens="select">-- Select sub county --</option>
-                                                        <option data-tokens="option 1">option 1</option>
-                                                        <option data-tokens="option 2">option 2</option>
-                                                        <option data-tokens="option 3">option 3</option>
-                                                        <option data-tokens="option 4">option 4</option>
-
-                                                    </select>
-
-                                                </div>
-
-                                            </div>
-
-                                            <div class="col-sm-12">
-                                                <div class="form-group">
-                                                    <label>
-                                                        <strong>Ward</strong>  <strong class="text-danger">*</strong>
-                                                        <p class="d-none"><small>Select income type from Drop down</small></p>
-                                                    </label>
-                                                    <select class="selectpicker form-control show-tick" data-live-search="true">
-                                                        <option data-tokens="select">-- Select ward --</option>
-                                                        <option data-tokens="option 1">option 1</option>
-                                                        <option data-tokens="option 2">option 2</option>
-                                                        <option data-tokens="option 3">option 3</option>
-                                                        <option data-tokens="option 4">option 4</option>
-
-                                                    </select>
-
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12 col-md-6">
-                                        <div class="form-group">
-                                            <label>
-                                                <strong>Brief Description</strong>  <strong class="text-danger">*</strong>
-                                            </label>
-                                            <textarea class="form-control  text-counter  pl-3 pt-3" placeholder="Start typing..." required style="height: 134px;"></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="col-md-12 col-sm-12">
-                                <div class="form-group">
-                                    <label>
-                                        <strong>Amount</strong>  <strong class="text-danger">*</strong>
-                                        <p class="d-none"><small>Enter amount to be paid</small></p>
-                                    </label>
-                                    <input type="text" class="form-control" placeholder="Enter amount" required>
-                                </div>
-                            </div>
-
-
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-light" data-dismiss="modal">Dismiss</button>
-                    <button type="button" class="btn btn-success btn--icon-text"> <i class="zmdi zmdi-check" ></i>Save changes</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- editing modal end -->
 
     <script src="{{ asset('vendors/jquery/jquery.min.js') }}"></script>
     <script type="text/javascript">
