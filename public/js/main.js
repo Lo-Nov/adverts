@@ -189,6 +189,7 @@ $(window).on('load', function(){
 	$('.this-year').text(moment().format('YYYY'));
 	$('.this-month').text(moment().format('MMMM'));
 	$('.month-abr').text(moment().format('MMM'));
+	$('.today-dig').text(moment().format('DD'));
 //	alert(moment().format('YY'));
 
 $(function() {

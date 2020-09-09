@@ -25,7 +25,7 @@
                 <a href="#" class="card dark-card">
                     <div class="card-body">
                         <div class="d-flex align-items-center">
-                            <div class="icon-in-bg bg-danger text-white rounded-circle"><i class="flaticon-not-permitted"></i></div>
+                            <div class="icon-in-bg bg-danger text-white rounded-circle today-dig">11</div>
                             <div class="ml-4">
                                 <span>Today</span>
                                 <h4 class="mb-0 font-weight-medium">KES 703,651</h4>
@@ -38,7 +38,7 @@
                 <a href="#" class="card dark-card">
                     <div class="card-body">
                         <div class="d-flex align-items-center">
-                            <div class="icon-in-bg bg-indigo text-white rounded-circle"><i class="flaticon-calendar-2"></i></div>
+                            <div class="icon-in-bg bg-indigo text-white rounded-circle"><i class="ti-calendar"></i></div>
                             <div class="ml-4">
                                 <span>This week</span>
                                 <h4 class="mb-0 font-weight-medium">KES 54,678,757</h4>
@@ -82,7 +82,7 @@
             <div class="col-lg-12 col-md-12">
                 <div class="row">
                     <div class="col-12">
-                        <div class="">
+                        <div class="d-none">
                             <h2>Revenue collection sammary</h2>
                         </div>
                         <div class="card user_statistics dark-card">
