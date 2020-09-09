@@ -240,7 +240,9 @@
                     <a href="#"><i class="zmdi zmdi-settings"></i>Settings  <i class="zmdi zmdi-caret-down drop-down-icon"></i></a>
                     <ul>
                         <li><a href="{{ route('billable-items') }}"><i class="flaticon-undo mr-2"></i>Billable Items</a></li>
-                        <li><a href=""><i class="flaticon-transfer mr-2"></i>Transfers</a></li>
+
+                        <li><a href="{{ route('add-applicant')}}"><i class="flaticon-transfer mr-2"></i>Add Applicant</a></li>
+                        <li><a href="{{ route('get-applicant')}}"><i class="flaticon-transfer mr-2"></i>Get Applicant</a></li>
                         <li><a href=""><i class="zmdi zmdi-edit mr-2"></i>Non Cash Edits</a></li>
                     </ul>
                 </li>

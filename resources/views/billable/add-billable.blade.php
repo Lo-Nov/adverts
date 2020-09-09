@@ -38,12 +38,12 @@
                                             <div class="col-sm-12">
                                                 <div class="form-group">
                                                     <label>
-                                                        <strong>Account Name</strong>  <strong class="text-danger">*</strong>
+                                                        <strong>Category Selection</strong>  <strong class="text-danger">*</strong>
                                                     </label>
                                                     <select id="selectbillable" class="selectpicker form-control show-tick" data-live-search="true">
                                                         <option value="select">-- Select Status --</option>
-                                                        <option value="parent">Parent</option>
-                                                        <option value="blue">Child</option>
+                                                        <option value="parent">Main Category</option>
+                                                        <option value="blue">Sub Category</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -79,7 +79,7 @@
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label>
-                                                                <strong>Parent</strong>  <strong class="text-danger">*</strong>
+                                                                <strong>Category</strong>  <strong class="text-danger">*</strong>
                                                             </label>
                                                             <input id="isParent" type="text" class="form-control  pl-3" value="true" required readonly>
                                                         </div>
@@ -91,8 +91,8 @@
 
                                                     <div class="col-md-6">
                                                         <div class="form-group float-right">
-                                                            <span type="submit" class="btn btn-primary btn-parent">
-                                                            <i class="zmdi zmdi-save"></i> Save changes</span>
+                                                            <span type="submit" class="btn btn-success btn-parent">
+                                                            <i class="zmdi zmdi-save"></i> Save Billable Item</span>
                                                             <span class="d-none" id="loader14" >
                                                             <img src="{{ asset('img/loader/loader.gif') }}" style="size: 20px" />
                                                             </span>
@@ -144,10 +144,10 @@
                                                     <div class="col-md-6 ">
                                                         <div class="form-group">
                                                             <label>
-                                                                <strong>ParentId</strong>  <strong class="text-danger">*</strong>
+                                                                <strong>Category</strong>  <strong class="text-danger">*</strong>
                                                             </label>
                                                             <select class="selectpicker form-control show-tick" id="parentId" data-live-search="true">
-                                                                <option data-tokens="select">-- Select Parent Id--</option>
+                                                                <option data-tokens="select">-- Select Category--</option>
                                                                 @foreach($getCategories->data as $item)
                                                                     <option value="{{ $item->parentId }}">{{ $item->itemName }}</option>
                                                                 @endforeach
@@ -157,7 +157,7 @@
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label>
-                                                                <strong>uniqueAdvertCode</strong>  <strong class="text-danger">*</strong>
+                                                                <strong>Advert Code</strong>  <strong class="text-danger">*</strong>
                                                             </label>
                                                             <input type="text" class="form-control  pl-3" placeholder="Enter customer's name" id="uniqueAdvertCode" required>
                                                         </div>
@@ -165,7 +165,7 @@
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label>
-                                                                <strong>Fixed</strong>  <strong class="text-danger">*</strong>
+                                                                <strong>Fixed Rate</strong>  <strong class="text-danger">*</strong>
                                                             </label>
                                                             <select class="selectpicker form-control show-tick" id="fixed" data-live-search="true">
                                                                 <option data-tokens="select">-- Select Status --</option>
@@ -178,8 +178,8 @@
 
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <span type="submit" class="btn btn-primary btn-child">
-                                                            <i class="zmdi zmdi-save"></i> Save changes</span>
+                                                            <span type="submit" class="btn btn-success btn-child">
+                                                            <i class="zmdi zmdi-save"></i> Save </span>
                                                             <span class="d-none" id="loader13" >
                                                             <img src="{{ asset('img/loader/loader.gif') }}" style="size: 20px" />
                                                             </span>
@@ -487,6 +487,3 @@
         });
     </script>
 @endsection
-
-
-

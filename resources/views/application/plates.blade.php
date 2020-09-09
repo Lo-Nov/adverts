@@ -3,23 +3,34 @@
 @section('content')
     <section class="content">
         <div class="content__inner">
+          <h4 class="card-title">Additional of Adverts Plates</h4>
+
             <div class="card">
                 <div class="card-body">
+                  <button class="float-right btn btn-outline-success" onclick="myFunction()"> <i class="zmdi zmdi-account-add"></i> Add Adverts Plates </button>
+
+                     <div id="myDIV" style="display: none">
                     <div class="row">
-                        <div class="col-md-12">
-                            <h4 class="card-title">Booking confirmation portal</h4>
+                        <div class="col-md-4">
                         </div>
-                        <div class="col-md-12">
+
+                        <div class="col-md-8">
                             <form action="" method="post" novalidate>
                                 @csrf
                                 <div class="form-row  mt-3">
                                     <div class="col-auto">
-                                        
-                                        <input type="date" class="form-control hidden-md-up" placeholder="Pick Date from" required>
-                                        <input type="text" name="from" class="form-control date-picker hidden-sm-down" placeholder="Pick Date from" required>
+
+                                      <label class="sr-only" for="inlineFormInputGroup">Username</label>
+                                      <div class="input-group mb-2">
+                                          <div class="input-group-prepend">
+                                              <div class="input-group-text">To</div>
+                                          </div>
+                                          <input type="date" class="form-control hidden-md-up" placeholder="Pick Date from" required>
+                                          <input type="text" name="from" class="form-control date-picker hidden-sm-down" placeholder="Pick Date from" required>
+                                      </div>
                                     </div>
                                     <div class="col-auto">
-                                       
+
                                         <div class="input-group">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text">To</div>
@@ -29,7 +40,7 @@
                                         </div>
                                     </div>
                                     <div class="col-auto">
-                                       
+
                                         <div class="input-group">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text">Status</div>
@@ -44,15 +55,16 @@
                                     </div>
                                     <div class="col-auto">
                                         <button class="btn btn-primary btn--icon-text " type="submit"><i class="zmdi zmdi-search"></i>Seacrh</button>
-                                       
+
                                     </div>
                                 </div>
                             </form>
                         </div>
-                    
-                        <div class="col">
-                            <p class="alert alert-danger d-none" id="msg-danger"></p>
-                            <p class="alert alert-success d-none" id="msg-success"></p>
+                    </div>
+                  </div>
+                    <div class="col">
+                        <p class="alert alert-danger d-none" id="msg-danger"></p>
+                        <p class="alert alert-success d-none" id="msg-success"></p>
 
                         </div>
                     </div>
@@ -74,7 +86,7 @@
                                         <td>{{ $item->plateNumber }} </td>
                                         <td>{{ $item->latLng }}</td>
                                         <td>{{ $item->street }}</td>
-        
+
                                     </tr>
                                 @endforeach
                                 </tbody>
@@ -82,7 +94,7 @@
                         </div>
                     </div>
                 </div>
-                
+
             </div>
         </div>
 
@@ -344,7 +356,15 @@
 
         })
     </script>
-
+    <script>
+           function myFunction() {
+               var x = document.getElementById("myDIV");
+               if (x.style.display === "none") {
+                   x.style.display = "block";
+               } else {
+                   x.style.display = "none";
+               }
+           }
+       </script>
 
 @endsection
-

@@ -31,6 +31,9 @@
                                         <strong> Choose your Physical Address</strong>  <strong class="text-danger">*</strong>
                                     </label>
                                     <input type="text" class="form-control  pl-3" placeholder="Enter your location and press Enter" id="address" onchange="myFunction()">
+                                        <span class="d-none" id="loader14" >
+                                        <img src="{{ asset('img/loader/loader.gif') }}" style="size: 10px" />
+                                        </span>
                                 </div>
                             </div>
                             <div class="col-12">
@@ -42,26 +45,31 @@
                                         <div class="contact-header">
                                             <h4>Application details</h4>
                                             <hr>
-    
-    
+
+
                                             <br><br>
                                         </div>
                                     </div>
-                                    
+                                    @if(session()->has('success'))
+                                        <div class="alert alert-success">
+                                        {{ session()->get('success') }}
+                                        </div>
+                                    @endif
 
-
-
-                                    <form class= "animated fade-in blue box" id="cform">
-                                        <div class="col-12 h-100 position-relative" >
-
+                                    @if($errors->any())
+                                        <p class="alert alert-danger mt-3">{{$errors->first()}}</p>
+                                    @endif
+                                    <form action="{{ route('post-apply') }}" method="post" class= "animated" enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="row h-100 position-relative" >
                                             <div class="form-items w-100">
                                                 <div class="row">
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label>
-                                                                <strong>uniqueAdvertCode</strong>  <strong class="text-danger">*</strong>
+                                                                <strong>Advert Code</strong>  <strong class="text-danger">*</strong>
                                                             </label>
-                                                            <input type="text" class="form-control  pl-3" placeholder="Enter customer's name" id="uniqueAdvertCode" required>
+                                                            <input type="text" class="form-control  pl-3" placeholder="Enter uniqueAdvertCode" id="uniqueAdvertCode" name="uniqueAdvertCode" required>
                                                         </div>
                                                     </div>
 
@@ -71,7 +79,7 @@
                                                                 <label>
                                                                     <strong>category Name</strong>  <strong class="text-danger">*</strong>
                                                                 </label>
-                                                                <select class="selectpicker form-control show-tick" id="parentId" data-live-search="true">
+                                                                <select class="selectpicker form-control show-tick" id="parentId" name="parentId" data-live-search="true">
                                                                     <option data-tokens="select">-- Select Category Name--</option>
                                                                         @foreach($getCategories->data as $item)
                                                                             <option value="{{ $item->parentId }}">{{ $item->itemName }}</option>
@@ -106,7 +114,7 @@
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label>
-                                                                <strong>latLng</strong>  <strong class="text-danger">*</strong>
+                                                                <strong>Latitude / Longitude</strong>  <strong class="text-danger">*</strong>
                                                             </label>
                                                             <div id="map"></div>
                                                             <input type="text" class="form-control  pl-3" placeholder="Enter customer's name" name="latLng" id="latLng" readonly required >
@@ -116,9 +124,14 @@
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label>
-                                                                <strong>applicantID</strong>  <strong class="text-danger">*</strong>
+                                                                <strong>Applicant </strong>  <strong class="text-danger">*</strong>
                                                             </label>
-                                                            <input type="text" class="form-control  pl-3" placeholder="Enter customer's name" id="applicantID" required>
+                                                            <select class="selectpicker form-control show-tick" id="applicantID" name="applicantID" data-live-search="true">
+                                                                <option data-tokens="select">-- Select applicantID--</option>
+                                                                @foreach($getApplicants->data as $item)
+                                                                    <option value="{{ $item->applicantId }}">{{ $item->names }}</option>
+                                                                @endforeach
+                                                            </select>
                                                         </div>
                                                     </div>
 
@@ -126,26 +139,31 @@
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label>
-                                                                <strong>dimensions</strong>  <strong class="text-danger">*</strong>
+                                                                <strong>Dimensions</strong>  <strong class="text-danger">*</strong>
                                                             </label>
-                                                            <input type="text" class="form-control  pl-3" placeholder="Enter dimention" id="dimensions" required>
+                                                            <input type="text" class="form-control  pl-3" placeholder="Enter dimention" id="dimensions" name="dimensions" required>
                                                         </div>
                                                     </div>
 
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label>
-                                                                <strong>dimensionsUnits</strong>  <strong class="text-danger">*</strong>
+                                                                <strong>Dimensions Units</strong>  <strong class="text-danger">*</strong>
                                                             </label>
-                                                            <input type="text" class="form-control  pl-3" placeholder="Enter dimention unit" id="dimensionsUnits" required>
+                                                            <select class="selectpicker form-control show-tick" id="dimensionsUnits" name="dimensionsUnits" data-live-search="true">
+                                                                            <option data-tokens="select">-- Select dimensions units--</option>
+                                                                            <option>Meters</option>
+                                                                            <option>Centimeters</option>
+                                                                            <option>Milimeters</option>
+                                                            </select>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label>
-                                                                <strong>duration</strong>  <strong class="text-danger">*</strong>
+                                                                <strong>Duration</strong>  <strong class="text-danger">*</strong>
                                                             </label>
-                                                            <input type="text" class="form-control  pl-3" placeholder="Enter duration" id="duration" required>
+                                                            <input type="text" class="form-control  pl-3" placeholder="Enter duration" id="duration" name="duration" required>
                                                         </div>
                                                     </div>
 
@@ -154,10 +172,10 @@
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label>
-                                                                <strong>durationUnit</strong>  <strong class="text-danger">*</strong>
+                                                                <strong>Duration Unit</strong>  <strong class="text-danger">*</strong>
                                                             </label>
-                                                            <select class="selectpicker form-control show-tick" id="durationUnit" data-live-search="true">
-                                                                <option data-tokens="select">-- Select durationUnit--</option>
+                                                            <select class="selectpicker form-control show-tick" id="durationUnit" name="durationUnit" data-live-search="true">
+                                                                <option data-tokens="select">-- Select duration unit--</option>
                                                                 @foreach($getDuration->data as $item)
                                                                     <option value="{{ $item->duration }}">{{ $item->duration }}</option>
                                                                 @endforeach
@@ -171,7 +189,7 @@
                                                             <label>
                                                                 <strong>Artwork</strong>  <strong class="text-danger">*</strong>
                                                             </label>
-                                                            <input type="file" id="artwork" required>
+                                                            <input type="file" id="artwork"  name="artwork" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
@@ -179,14 +197,14 @@
                                                             <label>
                                                                 <strong>Sub County</strong>  <strong class="text-danger">*</strong>
                                                             </label>
-                                                            <input type="text" class="form-control  pl-3" placeholder="Sub County" name="subcountyId" id="subcountyId" readonly required>
+                                                            <input type="text" class="form-control  pl-3" placeholder="Sub County" name="subCountyId" id="subCountyId" readonly required>
 
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label>
-                                                                <strong>Ward</strong>  <strong class="text-danger">*</strong>
+                                                                <strong>Ward / Town</strong>  <strong class="text-danger">*</strong>
                                                             </label>
                                                             <input type="text" class="form-control  pl-3" placeholder="Ward/Town" name="wardID" readonly id="wardID" required>
 
@@ -201,12 +219,11 @@
 
                                                     <div class="col-md-4">
                                                         <div class="form-group">
-
-                                                            <span type="submit" class="btn btn-primary btn-apply">
-                                                            <i class="zmdi zmdi-save"></i> Save changes</span>
-                                                            <span class="d-none" id="loader14" >
-                                                            <img src="{{ asset('img/loader/loader.gif') }}" style="size: 20px" />
-                                                            </span>
+                                                            <button type="submit" class="btn btn-success">
+                                                            <i class="zmdi zmdi-save"></i> Save Application</button>
+{{--                                                            <span class="d-none" id="loader14" >--}}
+{{--                                                            <img src="{{ asset('img/loader/loader.gif') }}" style="size: 20px" />--}}
+{{--                                                            </span>--}}
                                                         </div>
                                                     </div>
                                                 </div>
@@ -365,6 +382,7 @@
             $("#physicalAddress").val("");
             var physicalAddress = document.getElementById("address").value;
             //alert(physicalAddress);
+            $('#loader14').removeClass('d-none');
             // if(physicalAddress.length >5){
                 $.ajax({
                     url: "<?php echo url('get-address')?>" ,
@@ -373,6 +391,7 @@
                     data: {physicalAddress:physicalAddress},
                     success:function(data){
                         console.log(data.success.data);
+                        $('#loader14').addClass('d-none');
 
                         $('#physicalAddress').append($('<option>', {
                             value: ' ',
@@ -409,7 +428,7 @@
 
                     console.log(data);
 
-                    $('input[name=subcountyId]').val(data.subCounty);
+                    $('input[name=subCountyId]').val(data.subCounty);
                     $('input[name=wardID]').val(data.Town);
                     $('input[name=latLng]').val(data.latLng)
 
@@ -439,6 +458,7 @@
             var subCountyId = $("#subCountyId").val();
             var wardID = $("#wardID").val();
 
+            alert(artwork);
             if(uniqueAdvertCode === "" || dimensionsUnits ==="" ) {
                 swal({
                     title: "Required fields",
@@ -453,7 +473,10 @@
 
                 url: "<?php echo url('apply')?>" ,
                 type: "POST",
-                headers:{'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                headers:{
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                    'Content-Type': 'multipart/form-data'
+                },
                 data: {uniqueAdvertCode:uniqueAdvertCode, categoryName:categoryName, physicalAddress:physicalAddress, latLng:latLng,applicantID:applicantID,
                     dimensions:dimensions,artwork:artwork,duration:duration,durationUnit:durationUnit, dimensionsUnits:dimensionsUnits, subCountyId:subCountyId, wardID:wardID},
 
@@ -636,6 +659,3 @@
     </script>
 
 @endsection
-
-
-
