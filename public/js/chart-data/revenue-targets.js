@@ -47,7 +47,7 @@ Highcharts.chart('daily-target', {
         }
     },
     xAxis: {
-        categories: ['<span class="hc-cat-title">Daily</span><br/>Today: 24-06-20'],
+        categories: ['<span class="hc-cat-title">Daily</span><br/>Today: 11-09-20'],
 		gridLineWidth: 0,
     },
     yAxis: {
@@ -116,7 +116,7 @@ title: {
         }
     },
     xAxis: {
-        categories: ['<span class="hc-cat-title">Monthly</span><br/>June 2020'],
+        categories: ['<span class="hc-cat-title">Monthly</span><br/>Sep 2020'],
 		gridLineWidth: 0,
     },
     yAxis: {
@@ -179,7 +179,7 @@ chart: {
         }
     },
     xAxis: {
-        categories: ['<span class="hc-cat-title">Financial Year</span><br/>2020/2019'],
+        categories: ['<span class="hc-cat-title">Financial Year</span><br/>2020/2021'],
 		gridLineWidth: 0,
     },
     yAxis: {

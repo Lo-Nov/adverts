@@ -15178,5 +15178,5 @@ padding-right: 5px;
     margin-right: 1rem;
 }
 .form-control{
-    height: calc(2.5em + .75rem + 2px);
+    /* height: calc(2.5em + .75rem + 2px); */
 }

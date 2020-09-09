@@ -61,7 +61,7 @@
                                     @endif
                                     <form action="{{ route('post-apply') }}" method="post" class= "animated" enctype="multipart/form-data">
                                         @csrf
-                                        <div class="row h-100 position-relative" >
+                                        <div class="col-12 h-100 position-relative" >
                                             <div class="form-items w-100">
                                                 <div class="row">
                                                     <div class="col-md-4">
@@ -189,7 +189,7 @@
                                                             <label>
                                                                 <strong>Artwork</strong>  <strong class="text-danger">*</strong>
                                                             </label>
-                                                            <input type="file" id="artwork"  name="artwork" required>
+                                                            <input type="file" id="artwork"  name="artwork" class="form-group" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
