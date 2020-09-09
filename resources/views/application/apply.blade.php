@@ -33,19 +33,26 @@
                                     <input type="text" class="form-control  pl-3" placeholder="Enter your location and press Enter" id="address" onchange="myFunction()">
                                 </div>
                             </div>
+                            <div class="col-12">
+                                <hr>
+                            </div>
                             <div class="col-md-12">
-                                <div class="bill-details h-100 bill-checkout">
-                                    <div class="contact-header">
-                                        <h4>Application details</h4>
-                                        <hr>
-
-
-                                        <br><br>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="contact-header">
+                                            <h4>Application details</h4>
+                                            <hr>
+    
+    
+                                            <br><br>
+                                        </div>
                                     </div>
+                                    
+
 
 
                                     <form class= "animated fade-in blue box" id="cform">
-                                        <div class="row h-100 position-relative" >
+                                        <div class="col-12 h-100 position-relative" >
 
                                             <div class="form-items w-100">
                                                 <div class="row">

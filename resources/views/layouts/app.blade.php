@@ -15,7 +15,7 @@
     <link rel='icon' href='{{ asset('demo/img/icon_3.png') }}' type='image/x-icon'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.css">
 
-    <title>Nakuru Adverts</title>
+    <title>Adverts | Nakuru county Government</title>
 
     <!-- icon fonts -->
 
@@ -55,8 +55,8 @@
             </svg>
         </div>
         <span class="powerd-container">
-					<img src="{{ asset('demo/img/logo-files/NBk.png') }}">
-					<strong>POWERED BY NBK</strong>
+					<img src="{{ asset('demo/img/logo-files/logo_hr.png') }}">
+					<strong>A Product Of Nouveta</strong>
 				</span>
     </div>
 
@@ -70,7 +70,11 @@
         </div>
 
         <div class="header__logo hidden-sm-down">
-            <h1><a href="index.html"><img class="the-logo" src="{{ asset('demo/img/logo-files/logo-white.png') }}"></a></h1>
+            <a href="index.html"><img class="the-logo" src="demo/img/logo-files/nakuru-logo.png"></a>
+            <h1>
+                <a href="index.html" class="mb-3">Nakuru County</a>
+                <p class="mb-0 text-white font-weight-light text-capitalize font-12px">Adverts Dashboard</p>
+            </h1>
         </div>
 
         <form class="search">
@@ -82,7 +86,7 @@
 
         <ul class="top-nav">
             <li class="hidden-xl-up"><a href="#" data-ma-action="search-open"><i class="zmdi zmdi-search"></i></a></li>
-            <li   class="dropdown">
+            <li   class="dropdown d-none">
                 <a href="#" data-toggle="dropdown" data-toggle="tooltip" data-original-title="Create Accounts" class="px-4 py-3" ><strong>Create</strong></a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-menu--block">
                     <div class="listview listview--hover">
@@ -186,7 +190,7 @@
                     </div>
                 </div>
             </li>
-            <li class="" >
+            <li class="d-none" >
                 <a href="new-parent.html" data-ma-action="aside-open" data-ma-target=".chat" data-toggle="tooltip" data-original-title="Associate Blinker Requests" class="top-nav__notify">
                     <i class="zmdi zmdi-accounts-add"></i>
                 </a>
@@ -233,7 +237,7 @@
                     </ul>
                 </li>
                 <li class="navigation__sub">
-                    <a href="#"><i class="flaticon-register"></i>Settings  <i class="zmdi zmdi-caret-down drop-down-icon"></i></a>
+                    <a href="#"><i class="zmdi zmdi-settings"></i>Settings  <i class="zmdi zmdi-caret-down drop-down-icon"></i></a>
                     <ul>
                         <li><a href="{{ route('billable-items') }}"><i class="flaticon-undo mr-2"></i>Billable Items</a></li>
                         <li><a href=""><i class="flaticon-transfer mr-2"></i>Transfers</a></li>
@@ -262,7 +266,7 @@
                 </li>
                 <li class="navigation__active mt-4">
                     <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();" data-toggle-fullscreen="">
-                        Logout</a>
+                       <i class="zmdi zmdi-power"></i> Logout</a>
                     <form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form></li>
