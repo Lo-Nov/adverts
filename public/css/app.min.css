@@ -10103,6 +10103,7 @@ opacity:1
     color: #a9adb1
 }
 .sidebar {
+    /* background: #5faf53; */
     width: 270px;
     position: fixed;
     left: 0;
