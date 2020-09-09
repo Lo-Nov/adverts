@@ -10103,7 +10103,7 @@ opacity:1
     color: #a9adb1
 }
 .sidebar {
-    /* background: #5faf53; */
+    background: #5faf53;
     width: 270px;
     position: fixed;
     left: 0;
@@ -13591,7 +13591,9 @@ ul.jqtree-tree ul.jqtree_common {
 	top: 0;
 	left: 0;
 	background:linear-gradient(to top,#3eb64a, #000000cf);
-	z-index: -1;
+    z-index: -1;
+    position: absolute;
+    display: flex;
 
 }
 .user__email {
