@@ -13590,7 +13590,9 @@ ul.jqtree-tree ul.jqtree_common {
 	top: 0;
 	left: 0;
 	background:linear-gradient(to top,#3eb64a, #000000cf);
-	z-index: -1;
+    z-index: -1;
+    position: absolute;
+    display: flex;
 
 }
 .user__email {
@@ -15175,5 +15177,5 @@ padding-right: 5px;
     margin-right: 1rem;
 }
 .form-control{
-    height: calc(2.5em + .75rem + 2px);
+    /* height: calc(2.5em + .75rem + 2px); */
 }

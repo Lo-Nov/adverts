@@ -2,97 +2,125 @@
 
 @section('content')
     <section class="content">
+        <header class="content__title px-0 border-0">
+            <div class="row">
+               <div class="col-md-6 col-sm-12">
+                   <span class="rev-title-container">
+                    <h1 class="text-capitalize stream_name m-0">Addvert Plates</h1>
+                   </span>
+                   <div class="">
+                       <ol class="breadcrumb border-0">
+                           <li class="breadcrumb-item"><a href="{{ route('main') }}">Home</a></li>
+                           <li class="breadcrumb-item"><a href="#">Application</a></li>
+                           <li class="breadcrumb-item active">Plates</li>
+                       
+                       </ol>
+                       
+                   </div>
+               </div>
+               <div class="col-md-6 col-sm-12 text-right text-white"></div>
+           </div>
+       </header>
         <div class="content__inner">
-          <h4 class="card-title">Additional of Adverts Plates</h4>
+      
 
             <div class="card">
                 <div class="card-body">
-                  <button class="float-right btn btn-outline-success" onclick="myFunction()"> <i class="zmdi zmdi-account-add"></i> Add Adverts Plates </button>
-
-                     <div id="myDIV" style="display: none">
-                    <div class="row">
-                        <div class="col-md-4">
+                     <div class="row">
+                        <div class="col-8">
+                            <h4 class="card-title">Existing Advert Plates</h4>
+                            <h6 class="card-subtitle">Bellow is a list of the current advert plates</h6>
                         </div>
+                        <div class="col-4">
+                            <button class="btn btn-success float-right btn--icon-text" onclick="myFunction()"><i class="pe-7s-plus"></i> Advertisement Plate</button>
+                        </div>
+                    </div>
+                 
+                     <div id="myDIV" style="display: none">
+                        <div class="row">                            
 
-                        <div class="col-md-8">
-                            <form action="" method="post" novalidate>
-                                @csrf
-                                <div class="form-row  mt-3">
-                                    <div class="col-auto">
+                            <div class="col-md-12">
+                                <form action="" method="post" novalidate>
+                                    @csrf
+                                    <div class="form-row  mt-3">
+                                        <div class="col-auto">
 
-                                      <label class="sr-only" for="inlineFormInputGroup">Username</label>
-                                      <div class="input-group mb-2">
-                                          <div class="input-group-prepend">
-                                              <div class="input-group-text">To</div>
-                                          </div>
-                                          <input type="date" class="form-control hidden-md-up" placeholder="Pick Date from" required>
-                                          <input type="text" name="from" class="form-control date-picker hidden-sm-down" placeholder="Pick Date from" required>
-                                      </div>
-                                    </div>
-                                    <div class="col-auto">
-
-                                        <div class="input-group">
+                                        <label class="sr-only" for="inlineFormInputGroup">Username</label>
+                                        <div class="input-group mb-2">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text">To</div>
                                             </div>
-                                            <input type="date" class="form-control hidden-md-up" placeholder="Pick Date to" required>
-                                            <input type="text" name="to" class="form-control date-picker hidden-sm-down" placeholder="Pick Date To" required>
+                                            <input type="date" class="form-control hidden-md-up" placeholder="Pick Date from" required>
+                                            <input type="text" name="from" class="form-control date-picker hidden-sm-down" placeholder="Pick Date from" required>
                                         </div>
-                                    </div>
-                                    <div class="col-auto">
+                                        </div>
+                                        <div class="col-auto">
 
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text">Status</div>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">To</div>
+                                                </div>
+                                                <input type="date" class="form-control hidden-md-up" placeholder="Pick Date to" required>
+                                                <input type="text" name="to" class="form-control date-picker hidden-sm-down" placeholder="Pick Date To" required>
                                             </div>
-                                            <select type="text" name="status" class="form-control" id="inlineFormInputGroup" required>
-                                                <option value="">--Select Status--</option>
-                                                <option value="COMPLETED">COMPLETED</option>
-                                                <option value="CONFIRMED">CONFIRMED</option>
-                                                <option value="PENDING">PENDING</option>
-                                            </select>
+                                        </div>
+                                        <div class="col-auto">
+
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">Status</div>
+                                                </div>
+                                                <select type="text" name="status" class="form-control" id="inlineFormInputGroup" required>
+                                                    <option value="">--Select Status--</option>
+                                                    <option value="COMPLETED">COMPLETED</option>
+                                                    <option value="CONFIRMED">CONFIRMED</option>
+                                                    <option value="PENDING">PENDING</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <button class="btn btn-primary btn--icon-text " type="submit"><i class="zmdi zmdi-search"></i>Seacrh</button>
+
                                         </div>
                                     </div>
-                                    <div class="col-auto">
-                                        <button class="btn btn-primary btn--icon-text " type="submit"><i class="zmdi zmdi-search"></i>Seacrh</button>
-
-                                    </div>
-                                </div>
-                            </form>
+                                </form>
+                            </div>
                         </div>
                     </div>
-                  </div>
                     <div class="col">
                         <p class="alert alert-danger d-none" id="msg-danger"></p>
                         <p class="alert alert-success d-none" id="msg-success"></p>
 
                         </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="table-responsive" id="res-table">
-                            <table class="table table-hover" id="data-table">
-                                <thead class="thead-default">
-                                <tr>
-                                    <th>ID</th>
-                                    <th>plateNumber</th>
-                                    <th>latLng</th>
-                                    <th>street</th>
-                                </tr>
-                                </thead>
-                                <tbody class="table-striped">
-                                @foreach ($getAdvertsPlates->data->Items as $key=>$item)
-                                    <tr class="gradeX">
-                                        <td>{{ $item->id }} </td>
-                                        <td>{{ $item->plateNumber }} </td>
-                                        <td>{{ $item->latLng }}</td>
-                                        <td>{{ $item->street }}</td>
-
+                   
+                    <div class="row pt-3">
+                        <div class="col-12">
+                            <div class="table-responsive" id="res-table">
+                                <table class="table table-hover mt-3" id="data-table">
+                                    <thead class="thead-default">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>plateNumber</th>
+                                        <th>latLng</th>
+                                        <th>street</th>
                                     </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody class="table-striped">
+                                    @foreach ($getAdvertsPlates->data->Items as $key=>$item)
+                                        <tr class="gradeX">
+                                            <td>{{ $item->id }} </td>
+                                            <td>{{ $item->plateNumber }} </td>
+                                            <td>{{ $item->latLng }}</td>
+                                            <td>{{ $item->street }}</td>
+    
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
+                </div>
                 </div>
 
             </div>
