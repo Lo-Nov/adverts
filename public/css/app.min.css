@@ -8537,7 +8537,7 @@ h2, h3 {
 
 		display: block;
     width: 100%;
-    height: calc(1.5em + .75rem + 2px);
+    height: calc(1.85em + .75rem + 2px);
     padding: .375rem .75rem;
     font-size: 1rem;
     font-weight: 400;
@@ -13584,13 +13584,12 @@ ul.jqtree-tree ul.jqtree_common {
 /*	position: relative;*/
 }
 .sidebar:after{
-	position: absolute;
 	height: 100%;
 	width: 100%;
 	content: "";
 	top: 0;
 	left: 0;
-	background:linear-gradient(to top,#04a310, #01072ac4);
+	background:linear-gradient(to top,#3eb64a, #000000cf);
 	z-index: -1;
 
 }
@@ -13642,14 +13641,13 @@ ul.jqtree-tree ul.jqtree_common {
 }
 .header:after{
 	position: absolute;
-	height: 100%;
-	width: 100%;
-	content: "";
-	top: 0;
-	left: 0;
-	background:linear-gradient(to left,#21f358, #01072ac4);
-
-	z-index: -1;
+    height: 100%;
+    width: 100%;
+    content: "";
+    top: 0;
+    left: 0;
+    background: #212327;
+    z-index: -1;
 
 }
 
@@ -15161,4 +15159,21 @@ padding-right: 5px;
 
 .filter-table-options{
     top: 1.8rem !important;
+}
+
+.header__logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 4rem;
+    border-right: 1px solid #9696967d;
+    padding-right: 2rem;
+    color: white;
+}
+.header__logo img {
+    height: 55px;
+    margin-right: 1rem;
+}
+.form-control{
+    height: calc(2.5em + .75rem + 2px);
 }

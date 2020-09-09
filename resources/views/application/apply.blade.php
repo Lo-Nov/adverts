@@ -36,14 +36,19 @@
                                         </span>
                                 </div>
                             </div>
+                            <div class="col-12">
+                                <hr>
+                            </div>
                             <div class="col-md-12">
-                                <div class="bill-details h-100 bill-checkout">
-                                    <div class="contact-header">
-                                        <h4>Application details</h4>
-                                        <hr>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="contact-header">
+                                            <h4>Application details</h4>
+                                            <hr>
 
 
-                                        <br><br>
+                                            <br><br>
+                                        </div>
                                     </div>
                                     @if(session()->has('success'))
                                         <div class="alert alert-success">

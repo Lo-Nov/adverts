@@ -17,7 +17,7 @@
                         <div class="col-md-8">
                             <form action="" method="post" novalidate>
                                 @csrf
-                                <div class="form-row align-items-center">
+                                <div class="form-row  mt-3">
                                     <div class="col-auto">
 
                                       <label class="sr-only" for="inlineFormInputGroup">Username</label>
@@ -30,8 +30,8 @@
                                       </div>
                                     </div>
                                     <div class="col-auto">
-                                        <label class="sr-only" for="inlineFormInputGroup">Username</label>
-                                        <div class="input-group mb-2">
+
+                                        <div class="input-group">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text">To</div>
                                             </div>
@@ -40,8 +40,8 @@
                                         </div>
                                     </div>
                                     <div class="col-auto">
-                                        <label class="sr-only" for="inlineFormInputGroup">Username</label>
-                                        <div class="input-group mb-2">
+
+                                        <div class="input-group">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text">Status</div>
                                             </div>
@@ -54,7 +54,8 @@
                                         </div>
                                     </div>
                                     <div class="col-auto">
-                                        <button type="submit" class="btn btn-outline-success mb-2">Submit</button>
+                                        <button class="btn btn-primary btn--icon-text " type="submit"><i class="zmdi zmdi-search"></i>Seacrh</button>
+
                                     </div>
                                 </div>
                             </form>
@@ -65,31 +66,35 @@
                         <p class="alert alert-danger d-none" id="msg-danger"></p>
                         <p class="alert alert-success d-none" id="msg-success"></p>
 
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="table-responsive" id="res-table">
+                            <table class="table table-hover" id="data-table">
+                                <thead class="thead-default">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>plateNumber</th>
+                                    <th>latLng</th>
+                                    <th>street</th>
+                                </tr>
+                                </thead>
+                                <tbody class="table-striped">
+                                @foreach ($getAdvertsPlates->data->Items as $key=>$item)
+                                    <tr class="gradeX">
+                                        <td>{{ $item->id }} </td>
+                                        <td>{{ $item->plateNumber }} </td>
+                                        <td>{{ $item->latLng }}</td>
+                                        <td>{{ $item->street }}</td>
+
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
-                <div class="table-responsive" id="res-table">
-                    <table class="table table-hover" id="data-table">
-                        <thead class="thead-default">
-                        <tr>
-                            <th>ID</th>
-                            <th>plateNumber</th>
-                            <th>latLng</th>
-                            <th>street</th>
-                        </tr>
-                        </thead>
-                        <tbody class="table-striped">
-                        @foreach ($getAdvertsPlates->data->Items as $key=>$item)
-                            <tr class="gradeX">
-                                <td>{{ $item->id }} </td>
-                                <td>{{ $item->plateNumber }} </td>
-                                <td>{{ $item->latLng }}</td>
-                                <td>{{ $item->street }}</td>
 
-                            </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
-                </div>
             </div>
         </div>
 
