@@ -70,9 +70,9 @@
         </div>
 
         <div class="header__logo hidden-sm-down">
-            <a href="index.html"><img class="the-logo" src="{{ asset('demo/img/logo-files/nakuru-logo.png') }}"></a>
+            <a href="#"><img class="the-logo" src="{{ asset('demo/img/logo-files/nakuru-logo.png') }}"></a>
             <h1>
-                <a href="index.html" class="mb-3">Nakuru County</a>
+                <a href="#" class="mb-3">Nakuru County</a>
                 <p class="mb-0 text-white font-weight-light text-capitalize font-12px">Adverts Dashboard</p>
             </h1>
         </div>
@@ -212,7 +212,7 @@
                 </div>
 
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="my-profile.html">View Profile</a>
+                    <a class="dropdown-item" href="#">View Profile</a>
                     <a class="dropdown-item d-none" href="#">Settings</a>
                     <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();" data-toggle-fullscreen="">
                         Logout</a>

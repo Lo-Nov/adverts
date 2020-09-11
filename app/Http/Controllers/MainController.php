@@ -9,6 +9,16 @@ use Illuminate\Support\Facades\Session;
 class MainController extends Controller
 {
 
+    public function AdvertReceipt(Request $request)
+    {
+        $url = config('global.url');
+
+        $data = [
+            'function'=>'getAdvertReceipt',
+            'billNo' => $request->billNo,
+        ];
+        $getAdvertReceipt = json_decode($this->alex_to_curl($url, $data));
+    }
     public function printAdvertBill($billNo)
     {
         $url = config('global.url');
@@ -348,7 +358,7 @@ class MainController extends Controller
         //dd($data);
 
         $response = Http::attach('artwork', $file, $file_name)->post($url,$data);
-//        dd($response);
+       //dd($response);
 
         $this->data['getFoodHygieneBill'] = json_decode($response->body());
         //dd($this->data);

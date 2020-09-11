@@ -43,7 +43,7 @@
                                                             <label>
                                                                 <strong>Unique Advert Code</strong>  <strong class="text-danger">*</strong>
                                                             </label>
-                                                            <input type="text" class="form-control  pl-3" value="{{ $code }}" id="uniqueAdvertCode" required>
+                                                            <input type="text" class="form-control  pl-3" value="{{ $code }}" id="uniqueAdvertCode" required readonly>
                                                         </div>
                                                     </div>
 
@@ -60,13 +60,13 @@
                                                             <label>
                                                                 <strong>Created By</strong>  <strong class="text-danger">*</strong>
                                                             </label>
-                                                            <input type="text" class="form-control  pl-3" value="{{ Session::get('auth_session')[0]['username'] }}" id="createdBy" required>
+                                                            <input type="text" class="form-control  pl-3" value="{{ Session::get('auth_session')[0]['username'] }}" id="createdBy" required readonly>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group">
 
-                                                            <span type="submit" class="btn btn-primary btn-addtional">
+                                                            <span type="submit" class="btn btn-success btn-addtional">
                                                             <i class="zmdi zmdi-save"></i> Save changes</span>
                                                             <span class="d-none" id="loader14" >
                                                             <img src="{{ asset('img/loader/loader.gif') }}" style="size: 20px" />

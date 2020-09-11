@@ -51,5 +51,6 @@ Route::post('pay-advert-bill', 'MainController@payAdvertBill')->name('pay-advert
 Route::get('get-advert-receipt/{id}', 'MainController@getAdvertReceipt')->name('get-advert-receipt');
 Route::get('adverts-printables/{id}', 'MainController@advertsPrints')->name('adverts-printables');
 Route::get('print-advert-bill/{billNo}', 'MainController@printAdvertBill')->name('print-advert-bill');
+Route::post('get-advert-receipt','MainController@AdvertReceipt')->name('get-advert-receipt');
 
 

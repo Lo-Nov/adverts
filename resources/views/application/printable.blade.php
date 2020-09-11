@@ -27,10 +27,9 @@
 
                 <div class="row">
                     <div class="col-md-6">
-                        <h3>Print Food Hygiene License</h3>
-                        <i>Thanks for applying for food hygiene.</i>
+                        <h3>Print your receipt here</h3>
+                        <i>Thanks for applying for adverts .</i>
 
-                        <i>Your food hygiene certificate is ready, please download</i>
                         @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul>
@@ -40,20 +39,20 @@
                                 </ul>
                             </div>
                         @endif
-                        <form action="#" target="_blank" method="post" class="transaction-form p-0 w-100 row">
+                        <form action="" target="_blank" method="post" class="transaction-form p-0 w-100 row">
                             @csrf
                             <div class="form-group col-md-12 col-lg-4 mt-2">
-                                <input type="hidden" class="form-control " id="businessID" placeholder="eg Enter your Business ID" value="{{ Session::get('businessID') }}" name="businessID" >
+                                <input type="text" class="form-control " id="billNo" placeholder="eg Enter your Business ID" value="{{ Session::get('billNo') }}" name="billNo" >
                             </div>
 
                             <div class="col-sm-12 pt-3">
-                                <button type="submit" class="btn btn-success"> <i class="fa fa-download"></i> Download food hygiene License </button>
+                                <button type="submit" class="btn btn-success"> <i class="fa fa-download"></i> Download receipt </button>
 
                             </div>
                         </form>
 
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 d-none">
                         <h3>Print receipt </h3>
                         <ul>
                             <li>Click on the Print Receipt button above and paste the bill number below</li>
