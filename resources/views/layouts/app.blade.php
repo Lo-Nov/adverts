@@ -15,7 +15,7 @@
     <link rel='icon' href='{{ asset('demo/img/icon_3.png') }}' type='image/x-icon'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.css">
 
-    <title>Adverts | Nakuru county Government</title>
+    <title>{{ config('global.title') }}</title>
 
     <!-- icon fonts -->
 
@@ -70,7 +70,7 @@
         </div>
 
         <div class="header__logo hidden-sm-down">
-            <a href="index.html"><img class="the-logo" src="demo/img/logo-files/nakuru-logo.png"></a>
+            <a href="index.html"><img class="the-logo" src="{{ asset('demo/img/logo-files/nakuru-logo.png') }}"></a>
             <h1>
                 <a href="index.html" class="mb-3">Nakuru County</a>
                 <p class="mb-0 text-white font-weight-light text-capitalize font-12px">Adverts Dashboard</p>
@@ -241,7 +241,7 @@
                     <ul>
                         <li><a href="{{ route('billable-items') }}"><i class="flaticon-undo mr-2"></i>Billable Items</a></li>
 
-                        <!-- <li><a href="{{ route('add-applicant')}}"><i class="flaticon-transfer mr-2"></i>Add Applicant</a></li> -->
+                        <li><a href="{{ route('get-applications')}}"><i class="flaticon-transfer mr-2"></i>Get Applications</a></li>
                         <li><a href="{{ route('get-applicant')}}"><i class="flaticon-transfer mr-2"></i>Get Applicant</a></li>
                         <li><a href=""><i class="zmdi zmdi-edit mr-2"></i>Non Cash Edits</a></li>
                     </ul>

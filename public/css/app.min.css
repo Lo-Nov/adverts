@@ -5387,7 +5387,7 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover {
 .d-flex {
     display: -webkit-box!important;
     display: -ms-flexbox!important;
-    display: flex!important
+    /*display: flex!important*/
 }
 .d-inline-flex {
     display: -webkit-inline-box!important;
@@ -6743,7 +6743,7 @@ z-index:1020
     padding-left: 1.5rem!important
 }
 .p-5 {
-    padding: 3rem!important
+    /*padding: 3rem!important*/
 }
 .pt-5, .py-5 {
     padding-top: 3rem!important

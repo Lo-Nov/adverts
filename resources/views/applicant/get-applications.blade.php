@@ -2,10 +2,10 @@
 
 @section('content')
     <section class="content">
-      <button class="float-right btn btn-outline-success" onclick="myFunction()"> <i class="zmdi zmdi-account-add"></i> Applicant Portal </button>
+      <button class="float-right btn btn-outline-success" onclick="myFunction()"> <i class="zmdi zmdi-account-add"></i> Applicantion Portal </button>
 
         <div class="content__inner">
-          <h4 class="card-title">Additional of applicants</h4>
+          <h4 class="card-title">Applications</h4>
             <div class="card">
 
                 <div class="card-body">
@@ -69,9 +69,9 @@
                                                       </label>
                                                       <select  id="subCounty" name="subCounty" class="first-required form-control ">
                                                           <option >-- Sub sub County Name --</option>
-                                                          @foreach ($subCounty->data->subCounty as $item)
+                                                          {{-- @foreach ($subCounty->data->subCounty as $item)
                                                               <option value="{{ $item->id }}">{{ $item->subCounty }} </option>
-                                                          @endforeach
+                                                          @endforeach --}}
                                                       </select>
                                               </div>
                                           </div>
@@ -112,9 +112,9 @@
                                                   </label>
                                                   <select class="selectpicker form-control show-tick" id="applicantType" name="applicantType" data-live-search="true">
                                                       <option data-tokens="select">-- Select applicant type--</option>
-                                                      @foreach($getApplicantTypes->data as $item)
+                                                      {{-- @foreach($getApplicantTypes->data as $item)
                                                           <option value="{{ $item->id }}">{{ $item->applicantType }}</option>
-                                                      @endforeach
+                                                      @endforeach --}}
                                                   </select>
                                               </div>
                                           </div>
@@ -154,27 +154,35 @@
                             <table class="table table-hover" id="data-table">
                                 <thead class="thead-default">
                                 <tr>
-                                    <th>ID</th>
-                                    <th>names</th>
-                                    <th>applicantId</th>
-                                    <th>primaryPhone</th>
-                                    <th>secondaryPhone</th>
-                                    <th>email</th>
-                                    <th>town</th>
-                                    <th>dateCreated</th>
+                                    <th class="d-none">Id</th>
+                                    <th class="d-none">artwork</th>
+                                    <th>advertisementsCode</th>
+                                    <th>uniqueAdvertCode</th>
+                                    <th>categoryName</th>
+                                    <th class="d-none">latLng</th>
+                                    <th>applicantID</th>
+                                    <th>dimensions</th>
+                                    <th>duration</th>
+                                    <th>status</th>
+                                    <th>Update Status</th>
                                 </tr>
                                 </thead>
                                 <tbody class="table-striped">
-                                @foreach ($getApplicants->data as $key=>$item)
+                                @foreach ($getApplications->data as $key=>$item)
                                     <tr class="gradeX">
-                                        <td>{{ $item->id }} </td>
-                                        <td>{{ $item->names }} </td>
-                                        <td>{{ $item->applicantId }}</td>
-                                        <td>{{ $item->primaryPhone }}</td>
-                                        <td>{{ $item->secondaryPhone }}</td>
-                                        <td>{{ $item->email }}</td>
-                                        <td>{{ $item->town }}</td>
-                                        <td>{{ $item->dateCreated }}</td>
+                                        <td class="d-none">{{ $item->id }} </td>
+                                        <td class="d-none">{{ $item->artwork }} </td>
+                                        <td>{{ $item->advertisementsCode }} </td>
+                                        <td>{{ $item->uniqueAdvertCode }} </td>
+                                        <td>{{ $item->categoryName }}</td>
+                                        <td class="d-none">{{ $item->latLng }}</td>
+                                        <td>{{ $item->applicantID }}</td>
+                                        <td>{{ $item->dimensions }} {{  $item->dimensionsUnits }}</td>
+                                        <td>{{ $item->duration }} {{  $item->durationUnit }}</td>
+                                        <td>{{ $item->status }}</td>
+                                        <td>
+                                            <button class="btn btn-outline-success btnSelect" data-toggle="modal" data-target="#get-id"> <i class="zmdi zmdi-refresh"></i> Update</button>
+                                        </td>
 
                                     </tr>
                                 @endforeach
@@ -183,6 +191,60 @@
                         </div>
                       </div>
                   </div>
+                </div>
+            </div>
+        </div>
+           <!-- Modal -->
+           <div class="modal fade" id="get-id" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="testTittle"><strong>Make changes to test</strong></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+
+                    <form id="cform">
+                        <div class="modal-body pt-3">
+                            <div class="col-12 p-4 bg-info-yellow text-black mb-4">
+                                <iframe width="100" height="100" :src="'https://biller.revenuesure.co.ke/adverts/uploads/'+the-id0" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+                            </div>
+                            <div class="form-row">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="">
+                                            <label>Applicant Status <strong class="text-danger">*</strong></label>
+                                            <div class="">
+                                                <input type="text" id="id" name="id" class="form-control the-id0" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="">
+                                            <label>Application Status<strong class="text-danger">*</strong></label>
+                                            <select  id="status" name="status" class="first-required form-control ">
+                                                <option >-- Application status --</option>
+                                                @foreach ($getApplicantsStatus->data as $item)
+                                                    <option value="{{ $item->id }}">{{ $item->status }} </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" class="btn btn-secondary" data-dismiss="modal"> <i class="zmdi zmdi-close-circle"></i> Close</button>
+                            <span type="submit" class="btn btn-success btn-update-status">
+                                <i class="zmdi zmdi-save"></i> Save changes</span>
+                                <span class="d-none" id="loader14" >
+                                <img src="{{ asset('img/loader/loader.gif') }}" style="size: 20px" />
+                            </span>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -201,7 +263,7 @@
 
                 var col1=$(this).parent().siblings().eq(0).text(); // get current row 1st TD value
                 var col2=$(this).parent().siblings().eq(2).text();// get current row 2nd TD
-                var id_num=$(this).parent().siblings().eq(1).text();
+                var id_num=$(this).parent().siblings().eq(6).text();
                 var col3=$(this).parent().siblings().eq(3).text(); // get current row 3rd TD
 
                 var results=$(this).parent().siblings('.test-results').text();
@@ -219,9 +281,7 @@
                 $('#get-id .modal-body .the-id1').val(col2);
                 $('#get-id .modal-body .the-id2').val(col3);
 
-                $('#testTittle').html('<h4 class"mb-0"><strong> Suggested Date: '+col2+'</strong><hr></h4><span class="thin">Confirm the booking date to corporates.</span><p><strong>Business  Number:'+id_num+'</strong></p>');
-
-
+                $('#testTittle').html('<h4 class"mb-0"><strong> Advertisements Code: '+col2+'</strong><hr></h4><span class="thin"></span><p><strong><center> Update status for this application :</center></strong></p>');
             });
         });
     </script>
@@ -275,21 +335,13 @@
     <script type="text/javascript">
         //getting selected test name
         // var test_name=$('#testNam').val();
-        $('.btn-add-applicant').click(function(e){
+        $('.btn-update-status').click(function(e){
             e.preventDefault();
 
-            var names = $('#names').val();
-            var applicantId = $("#applicantId").val();
-            var primaryPhone = $("#primaryPhone").val();
-            var secondaryPhone = $("#secondaryPhone").val();
-            var email = $("#email").val();
-            var subCounty = $("#subCounty").val();
-            var ward = $("#ward").val();
-            var town = $("#town").val();
-            var county = $("#county").val();
-            var applicantType = $("#applicantType").val();
+            var  id = $('#id').val();
+            var status = $("#status").val();
 
-            if(email === "" || names ==="" || county === "" || town === "" || primaryPhone==="" ) {
+            if(id === "" || status === ""  ) {
                 swal({
                     title: "Required fields",
                     text:"Please Fill All Required Field",
@@ -301,10 +353,10 @@
             $('#loader14').removeClass('d-none');
             $.ajax({
 
-                url: "save-applicant" ,
+                url: "<?php echo url('update-status') ?>" ,
                 type: "POST",
                 headers:{'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                data: {names:names, applicantId:applicantId, primaryPhone:primaryPhone, secondaryPhone:secondaryPhone,email:email, subCounty:subCounty,ward:ward,town:town,county:county,applicantType:applicantType},
+                data: {id:id, status:status},
 
                 success:function(data){
                     $("#cform")[0].reset();

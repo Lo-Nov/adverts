@@ -223,7 +223,7 @@
         }
     </script>
 
-    <script>
+    <script type="text/javascript">
         $('#physicalAddress').on('change', function(){
            var locationID = $(this).val();
 

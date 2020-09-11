@@ -41,3 +41,15 @@ Route::post('get-location', 'MainController@getLocation')->name('get-location');
 Route::get('add-applicant','MainController@addApplicant')->name('add-applicant');
 Route::get('get-applicant','MainController@getApplicant')->name('get-applicant');
 Route::post('save-applicant','MainController@saveApplicant')->name('save-applicant');
+
+Route::post('get-demo', 'MainController@getDemo')->name('get-demo');
+
+//applications
+Route::get('get-applications','MainController@getApplications')->name('get-applications');
+Route::post('update-status','MainController@updateStatus')->name('update-status');
+Route::post('pay-advert-bill', 'MainController@payAdvertBill')->name('pay-advert-bill');
+Route::get('get-advert-receipt/{id}', 'MainController@getAdvertReceipt')->name('get-advert-receipt');
+Route::get('adverts-printables/{id}', 'MainController@advertsPrints')->name('adverts-printables');
+Route::get('print-advert-bill/{billNo}', 'MainController@printAdvertBill')->name('print-advert-bill');
+
+

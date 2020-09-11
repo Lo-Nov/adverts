@@ -45,14 +45,12 @@
                                         <div class="contact-header">
                                             <h4>Application details</h4>
                                             <hr>
-
-
                                             <br><br>
                                         </div>
                                     </div>
-                                    @if(session()->has('success'))
-                                        <div class="alert alert-success">
-                                        {{ session()->get('success') }}
+                                    @if(session()->has('error'))
+                                        <div class="alert alert-danger">
+                                        {{ session()->get('error') }}
                                         </div>
                                     @endif
 

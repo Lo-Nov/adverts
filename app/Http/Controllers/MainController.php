@@ -8,6 +8,144 @@ use Illuminate\Support\Facades\Session;
 
 class MainController extends Controller
 {
+
+    public function printAdvertBill($billNo)
+    {
+        $url = config('global.url');
+
+        //dd($businessID);
+
+        $data = [
+            'function'=>'getAdvertBill',
+            'billNo' => $billNo
+        ];
+
+        //dd($data);
+
+        $bill_info = json_decode($this->alex_to_curl($url, $data));
+        //dd($bill_info);
+
+        if(empty($bill_info))
+        {
+            return redirect()->back()->withErrors("We're having trouble retrieving your bill. Please try again later");
+        }
+        if($bill_info->success !=true)
+        {
+            return response()->json($bill_info->message);
+        }
+
+        $bill = $bill_info->data;
+
+        $data = [
+            'bill' => $bill,
+        ];
+
+//        $pdf = PDF::loadView('application.naks-pdf-bill', $data);
+//        return $pdf->stream('bill.pdf',array('Attachment'=>0));
+        return view('application.naks-bill-sheet', ['bill' => $bill]);
+    }
+
+
+    public function advertsPrints($pay_id)
+    {
+        return view('application.printable', compact('pay_id'));
+    }
+
+    public function getAdvertReceipt($pay_id)
+    {
+        $url = config('global.payme_direct');
+
+        $data = [
+            'function'=>'checkPaymentVerification',
+            'account_reference' => $pay_id,
+        ];
+
+
+        $checkPaymentVerification = json_decode($this->payme_to_curl($url, $data));
+        //dd($checkPaymentVerification);
+        return response()->json(['success'=>$checkPaymentVerification]);
+    }
+
+
+    public function payAdvertBill(Request $request)
+    {
+        $url = config('global.payme_direct');
+
+        $data = [
+            'function'=>'CustomerPayBillOnlinePush',
+            'PayBillNumber'=>367776,
+            'Amount'=> $request->Amount,
+            'PhoneNumber' => $request->phoneNumber,
+            'AccountReference' => $request->paymentCode,
+            'TransactionDesc' => $request->accNo,
+        ];
+
+        //dd($data);
+        $payment_info = json_decode($this->payme_to_curl($url, $data));
+        //dd($payment_info);
+        return response()->json(['success'=>$payment_info]);
+
+    }
+
+
+  public function updateStatus(Request $request)
+  {
+    $url = $this->url = config('global.url');
+    $request->validate([
+        'status'=>'required',
+        'id'=>'required',
+    ]);
+
+    $data = [
+        'function'=>'updateApplicationsStatus',
+        'status'=>$request->status,
+        'id'=>$request->id,
+    ];
+    //dd($data);
+    $updateApplicationsStatus = json_decode($this->alex_to_curl($url, $data));
+    //dd($updateApplicationsStatus);
+    return response()->json(['success'=>$updateApplicationsStatus]);
+  }
+
+
+    public function getApplications()
+    {
+      if (Session::get('auth_session')[0]['logged_in'] != 1) {
+          Session::put('url', url()->current());
+          return redirect()->route('login');
+      } else {
+        $url = config('global.url');
+        $data = [
+            'function'=>'getApplications',
+            'status'=>1
+        ];
+          $this->data['getApplications'] = json_decode($this->alex_to_curl($url, $data));
+          $url = config('global.url');
+          $data = [
+              'function'=>'getApplicantsStatus',
+          ];
+          $this->data['getApplicantsStatus'] = json_decode($this->alex_to_curl($url, $data));
+
+          return view('applicant.get-applications')->with($this->data);
+      }
+
+    }
+
+  public function getDemo(Request $request){
+      $url = config('global.url');
+
+      $data = [
+              'function'=> 'getWards',
+              'subCountyId' => $request->Id,
+          ];
+      //dd($data);
+      $ward_info  = json_decode($this->alex_to_curl($url, $data));
+      //dd($ward_info);
+      return response()->json($ward_info);
+  }
+
+
+
   public function saveApplicant(Request $request)
   {
     $url = $this->url = config('global.url');
@@ -57,7 +195,17 @@ class MainController extends Controller
           'function'=>'getApplicantTypes',
       ];
       $this->data['getApplicantTypes'] = json_decode($this->alex_to_curl($url, $data));
-      return view('applicant.get-applicant')->with($this->data);
+
+        $data = [
+            'function'=>'subCounty',
+        ];
+        $this->data['subCounty'] = json_decode($this->alex_to_curl($url, $data));
+
+
+
+
+
+        return view('applicant.get-applicant')->with($this->data);
     }
 
   }
@@ -197,17 +345,19 @@ class MainController extends Controller
             'subCountyId'=>$request->subCountyId,
             'wardID'=>$request->wardID,
         ];
-
-
         //dd($data);
 
         $response = Http::attach('artwork', $file, $file_name)->post($url,$data);
 //        dd($response);
 
-        $registered = json_decode($response->body());
-      //  dd($registered->message);
-        if ($registered->success === true){
-          return redirect()->back()->with('success', 'Application posted successfully !');
+        $this->data['getFoodHygieneBill'] = json_decode($response->body());
+        //dd($this->data);
+        Session::put('billNo', $this->data['getFoodHygieneBill']->data->billNo);
+
+        if ($this->data['getFoodHygieneBill']->success === true){
+            return view('application.bill')->with($this->data);
+        }else{
+            return redirect()->back()->withErrors('error', $this->data['getFoodHygieneBill']->message);
         }
     }
 
@@ -382,6 +532,44 @@ class MainController extends Controller
 
         curl_close($ch);
         return $output;
+
+    }
+    function payme_to_curl($url, $data)
+    {
+
+        //        $headers = array
+        //        (
+        //            'Content-Type: application/json',
+        //            'Content-Length: ' . strlen( json_encode($data) )
+        //        );
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST" );
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, false );
+        curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1 );
+        curl_setopt($ch, CURLOPT_ENCODING, "" );
+        curl_setopt($ch, CURLOPT_MAXREDIRS, 10 );
+        curl_setopt($ch, CURLOPT_TIMEOUT, 0 );
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE); // Skip SSL Verification
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE); // Skip SSL Verification
+
+        //        curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers );
+
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+        $output = curl_exec($ch);
+        $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        /*if($httpcode != 200)
+            {
+            $this->session->set_flashdata( "error", "An error has ocurred . Try again" );
+            redirect('land');
+            }
+        */
+        curl_close($ch);
+        return $output;
+
 
     }
 }
