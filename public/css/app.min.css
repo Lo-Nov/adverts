@@ -1549,7 +1549,7 @@ pre code {
     padding: 1rem 2.5rem;
     vertical-align: top;
     border-top: 1px solid #f2f4f5;
-    font-size: 15px;
+    font-size: 12px;
     white-space: nowrap;
     font-weight: 600;
     color: #282b2f !important;
@@ -15179,4 +15179,28 @@ padding-right: 5px;
 }
 .form-control{
     /* height: calc(2.5em + .75rem + 2px); */
+}
+
+.bill-details form {
+   
+}
+.bill-details .receipting-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 320px;
+}
+
+.search-img img {
+    width: 320px;
+}
+.search-img {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    flex-flow: column;
+    align-content: center;
+    justify-content: center;
 }

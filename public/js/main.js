@@ -360,6 +360,46 @@ function reset_date(){
 	
 });
 
+form_to_show();
+
+
+function form_to_show(){
+
+	var the_vale=$('#selectbillable').val();
+	if(the_vale=="blue"){
+
+		// alert("its blue");
+		$('.form-actions-cont .their-forms form').addClass('d-none');
+		$('.form-actions-cont .search-img').addClass('d-none');
+		$('.form-actions-cont .sub-category').removeClass('d-none');
+		$('.form-actions-cont .their-forms').removeClass('d-none');
+
+	}
+	if(the_vale=="parent"){
+
+		// alert("its parent");
+		$('.form-actions-cont .their-forms form').addClass('d-none');
+		$('.form-actions-cont .search-img').addClass('d-none');
+		$('.form-actions-cont .main-category').removeClass('d-none');
+	   
+		$('.form-actions-cont .their-forms').removeClass('d-none');
+
+	}
+	if(the_vale=="select"){
+		$('.form-actions-cont .search-img').removeClass('d-none');
+		$('.form-actions-cont form').addClass('d-none');
+		$('.form-actions-cont .their-forms').addClass('d-none');
+	}
+}
+
+// advertising
+
+$("#selectbillable").on('change', function(){
+	form_to_show();
+	// alert(the_vale);
+
+});
+
 
 //owl initializer
 $(document).ready(function(){

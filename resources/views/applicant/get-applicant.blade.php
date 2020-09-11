@@ -2,187 +2,216 @@
 
 @section('content')
     <section class="content">
-      <button class="float-right btn btn-outline-success" onclick="myFunction()"> <i class="zmdi zmdi-account-add"></i> Applicant Portal </button>
+        <header class="content__title px-0 border-0">
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+							<span class="rev-title-container">
+							 <h1 class="text-capitalize stream_name m-0">List of Applicant's</h1>
+							</span>
+                    <div class="">
+                        <ol class="breadcrumb border-0">
+                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item active">Applicants</li>
+
+                        </ol>
+
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12 text-right text-white"></div>
+            </div>
+        </header>
+
+      <button class="float-right btn btn-outline-success d-none" onclick="myFunction()"> <i class="zmdi zmdi-account-add"></i> Add Adverts Plates </button>
 
         <div class="content__inner">
-          <h4 class="card-title">Additional of applicants</h4>
+          <h4 class="card-title d-none">Additional of Adverts Plates</h4>
+
             <div class="card">
 
                 <div class="card-body">
-
-                     <div id="myDIV" style="display: none">
                     <div class="row">
-                        <div class="col-md-12">
-                          <form id="cform">
-                              <div class="row h-100 position-relative" >
-                                  <div class="form-items w-100">
-                                      <div class="row">
-                                          <div class="col-md-4">
-                                              <div class="form-group">
-                                                  <label>
-                                                      <strong>Names</strong>  <strong class="text-danger">*</strong>
-                                                  </label>
-                                                  <input type="text" class="form-control  pl-3" placeholder="Enter names" id="names" name="names" required>
-                                              </div>
-                                          </div>
-
-                                          <div class="col-md-4">
-                                              <div class="form-group">
-                                                  <label>
-                                                      <strong>applicantId</strong>  <strong class="text-danger">*</strong>
-                                                  </label>
-                                                  <input type="text" class="form-control  pl-3" placeholder="Enter names" id="applicantId" name="applicantId" required>
-                                              </div>
-                                          </div>
-
-
-                                          <div class="col-md-4">
-                                              <div class="form-group">
-                                                  <label>
-                                                      <strong>primaryPhone</strong>  <strong class="text-danger">*</strong>
-                                                  </label>
-                                                  <input type="text" class="form-control  pl-3" placeholder="Enter names" id="primaryPhone" name="primaryPhone" required>
-                                              </div>
-                                          </div>
-
-                                          <div class="col-md-4">
-                                              <div class="form-group">
-                                                  <label>
-                                                      <strong>secondaryPhone</strong>  <strong class="text-danger">*</strong>
-                                                  </label>
-                                                  <input type="text" class="form-control  pl-3" placeholder="Enter names" id="secondaryPhone" name="secondaryPhone" required>
-                                              </div>
-                                          </div>
-
-                                          <div class="col-md-4">
-                                              <div class="form-group">
-                                                  <label>
-                                                      <strong>email</strong>  <strong class="text-danger">*</strong>
-                                                  </label>
-                                                  <input type="email" class="form-control  pl-3" placeholder="Enter names" id="email" name="email" required>
-                                              </div>
-                                          </div>
-                                          <div class="col-md-4">
-                                              <div class="form-group">
-                                                      <label>
-                                                          <strong>subCounty</strong>  <strong class="text-danger">*</strong>
-                                                      </label>
-                                                      <select  id="subCounty" name="subCounty" class="first-required form-control ">
-                                                          <option >-- Sub sub County Name --</option>
-                                                          @foreach ($subCounty->data->subCounty as $item)
-                                                              <option value="{{ $item->id }}">{{ $item->subCounty }} </option>
-                                                          @endforeach
-                                                      </select>
-                                              </div>
-                                          </div>
-
-                                          <div class="col-md-4">
-                                              <div class="form-group">
-                                                      <label>
-                                                          <strong>ward</strong>  <strong class="text-danger">*</strong>
-                                                      </label>
-                                                      <select  id="ward" name="ward" class="first-required form-control ">
-
-                                                      </select>
-                                              </div>
-                                          </div>
-
-                                          <div class="col-md-4">
-                                              <div class="form-group">
-                                                  <label>
-                                                      <strong>town</strong>  <strong class="text-danger">*</strong>
-                                                  </label>
-                                                  <input type="text" class="form-control  pl-3" placeholder="Enter names" id="town" name="town" required>
-                                              </div>
-                                          </div>
-
-                                          <div class="col-md-4">
-                                              <div class="form-group">
-                                                  <label>
-                                                      <strong>county</strong>  <strong class="text-danger">*</strong>
-                                                  </label>
-                                                  <input type="text" class="form-control  pl-3" placeholder="Enter names" id="county" name="county" required>
-                                              </div>
-                                          </div>
-
-                                          <div class="col-md-4">
-                                              <div class="form-group">
-                                                  <label>
-                                                      <strong>Applicant Type</strong>  <strong class="text-danger">*</strong>
-                                                  </label>
-                                                  <select class="selectpicker form-control show-tick" id="applicantType" name="applicantType" data-live-search="true">
-                                                      <option data-tokens="select">-- Select applicant type--</option>
-                                                      @foreach($getApplicantTypes->data as $item)
-                                                          <option value="{{ $item->id }}">{{ $item->applicantType }}</option>
-                                                      @endforeach
-                                                  </select>
-                                              </div>
-                                          </div>
-                                          <div class="col-md-4">
-
-                                          </div>
-                                          <div class="col-md-4">
-
-                                          </div>
-
-                                          <div class="col-md-4">
-                                              <div class="form-group">
-                                                  <span type="submit" class="btn btn-success btn-add-applicant">
-                                                  <i class="zmdi zmdi-save"></i> Save Applicant</span>
-                                                           <span class="d-none" id="loader14" >
-                                                           <img src="{{ asset('img/loader/loader.gif') }}" style="size: 20px" />
-                                                           </span>
-                                              </div>
-                                          </div>
-                                      </div>
-
-                                  </div>
-
-                              </div>
-                          </form>
+                        <div class="col-8">
+                            <h4 class="card-title">List of Applicant's</h4>
+                            <h6 class="card-subtitle">Bellow is a list of applicant's</h6>
+                        </div>
+                        <div class="col-4">
+                            <button class="btn btn-success float-right btn--icon-text" onclick="myFunction()"><i class="pe-7s-plus"></i> Add Adverts Plates</button>
                         </div>
                     </div>
-                  </div>
+
+                     <div id="myDIV" style="display: none">
+                        <div class="w-100 pt-4">
+                            <div class="col-md-12">
+                            <form action="{{ route('post-apply') }}" method="post" class= "animated" enctype="multipart/form-data">
+                                @csrf
+                                <div class="row h-100 position-relative" >
+                                    <div class="form-items w-100">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>
+                                                        <strong>Names</strong>  <strong class="text-danger">*</strong>
+                                                    </label>
+                                                    <input type="text" class="form-control  pl-3" placeholder="Enter names" id="names" name="names" required>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>
+                                                        <strong>applicantId</strong>  <strong class="text-danger">*</strong>
+                                                    </label>
+                                                    <input type="text" class="form-control  pl-3" placeholder="Enter names" id="applicantId" name="applicantId" required>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>
+                                                        <strong>applicantId</strong>  <strong class="text-danger">*</strong>
+                                                    </label>
+                                                    <input type="text" class="form-control  pl-3" placeholder="Enter names" id="primaryPhone" name="primaryPhone" required>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>
+                                                        <strong>secondaryPhone</strong>  <strong class="text-danger">*</strong>
+                                                    </label>
+                                                    <input type="text" class="form-control  pl-3" placeholder="Enter names" id="secondaryPhone" name="secondaryPhone" required>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>
+                                                        <strong>email</strong>  <strong class="text-danger">*</strong>
+                                                    </label>
+                                                    <input type="email" class="form-control  pl-3" placeholder="Enter names" id="email" name="email" required>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                        <label>
+                                                            <strong>subCounty</strong>  <strong class="text-danger">*</strong>
+                                                        </label>
+                                                        <select  id="subCounty" name="subCounty" class="first-required form-control ">
+                                                            <option >-- Sub Category Name --</option>
+                                                            <option>Naivasha </option>
+                                                        </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                        <label>
+                                                            <strong>ward</strong>  <strong class="text-danger">*</strong>
+                                                        </label>
+                                                        <select  id="ward" name="ward" class="first-required form-control ">
+                                                            <option >-- select ward --</option>
+                                                            <option>Olkaria </option>
+                                                            <option>Hell's gate </option>
+                                                        </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>
+                                                        <strong>town</strong>  <strong class="text-danger">*</strong>
+                                                    </label>
+                                                    <input type="text" class="form-control  pl-3" placeholder="Enter names" id="town" name="town" required>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>
+                                                        <strong>county</strong>  <strong class="text-danger">*</strong>
+                                                    </label>
+                                                    <input type="text" class="form-control  pl-3" placeholder="Enter names" id="county" name="county" required>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>
+                                                        <strong>Applicant Type</strong>  <strong class="text-danger">*</strong>
+                                                    </label>
+                                                    <select class="selectpicker form-control show-tick" id="durationUnit" name="durationUnit" data-live-search="true">
+                                                        <option data-tokens="select">-- Select applicant type--</option>
+                                                        @foreach($getApplicantTypes->data as $item)
+                                                            <option value="{{ $item->id }}">{{ $item->applicantType }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+
+                                            </div>
+                                            <div class="col-md-4">
+
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <button type="submit" class="btn btn-success">
+                                                    <i class="zmdi zmdi-save"></i> Save Applicant</button>
+                                                            {{-- <span class="d-none" id="loader14" >
+                                                                <img src="{{ asset('img/loader/loader.gif') }}" style="size: 20px" />
+                                                                </span> --}}
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </form>
+                            </div>
+                        </div>
+                    </div>
                     <div class="col">
                         <p class="alert alert-danger d-none" id="msg-danger"></p>
                         <p class="alert alert-success d-none" id="msg-success"></p>
 
                     </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                        <div class="table-responsive" id="res-table">
-                            <table class="table table-hover" id="data-table">
-                                <thead class="thead-default">
-                                <tr>
-                                    <th>ID</th>
-                                    <th>names</th>
-                                    <th>applicantId</th>
-                                    <th>primaryPhone</th>
-                                    <th>secondaryPhone</th>
-                                    <th>email</th>
-                                    <th>town</th>
-                                    <th>dateCreated</th>
-                                </tr>
-                                </thead>
-                                <tbody class="table-striped">
-                                @foreach ($getApplicants->data as $key=>$item)
-                                    <tr class="gradeX">
-                                        <td>{{ $item->id }} </td>
-                                        <td>{{ $item->names }} </td>
-                                        <td>{{ $item->applicantId }}</td>
-                                        <td>{{ $item->primaryPhone }}</td>
-                                        <td>{{ $item->secondaryPhone }}</td>
-                                        <td>{{ $item->email }}</td>
-                                        <td>{{ $item->town }}</td>
-                                        <td>{{ $item->dateCreated }}</td>
 
-                                    </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                      </div>
-                  </div>
+                    <div class="table-responsive" id="res-table">
+                        <table class="table table-hover table-striped" id="data-table">
+                            <thead class="thead-default">
+                            <tr>
+                                <th>ID</th>
+                                <th>names</th>
+                                <th>applicantId</th>
+                                <th>primaryPhone</th>
+                                <th>secondaryPhone</th>
+                                <th>email</th>
+                                <th>town</th>
+                                <th>dateCreated</th>
+                            </tr>
+                            </thead>
+                            <tbody class="table-striped">
+                            @foreach ($getApplicants->data as $key=>$item)
+                                <tr class="gradeX">
+                                    <td>{{ $item->id }} </td>
+                                    <td>{{ $item->names }} </td>
+                                    <td>{{ $item->applicantId }}</td>
+                                    <td>{{ $item->primaryPhone }}</td>
+                                    <td>{{ $item->secondaryPhone }}</td>
+                                    <td>{{ $item->email }}</td>
+                                    <td>{{ $item->town }}</td>
+                                    <td>{{ $item->dateCreated }}</td>
+
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

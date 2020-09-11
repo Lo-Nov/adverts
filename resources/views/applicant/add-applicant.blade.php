@@ -6,11 +6,12 @@
             <div class="row">
                 <div class="col-md-6 col-sm-12">
 							<span class="rev-title-container">
-							 <h1 class="text-capitalize stream_name m-0">Applicant application</h1>
+							 <h1 class="text-capitalize stream_name m-0">New Applicant</h1>
 							</span>
                     <div class="">
                         <ol class="breadcrumb border-0">
                             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="#">Settings</a></li>
                             <li class="breadcrumb-item active">New Applicant</li>
 
                         </ol>
@@ -27,7 +28,7 @@
                         <div class="row">
 
                             <div class="col-md-12">
-                                <div class="bill-details h-100 bill-checkout">
+                                <div class=" h-100 ">
                                     <div class="contact-header">
                                         <h4>Applicant details</h4>
                                         <hr>
@@ -44,7 +45,7 @@
                                     @endif
                                     <form action="{{ route('post-apply') }}" method="post" class= "animated" enctype="multipart/form-data">
                                         @csrf
-                                        <div class="row h-100 position-relative" >
+                                        <div class=" h-100 position-relative" >
                                             <div class="form-items w-100">
                                                 <div class="row">
                                                     <div class="col-md-4">
