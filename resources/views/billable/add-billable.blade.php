@@ -276,6 +276,15 @@
                                                     <div class="col-md-12 col-sm-12">
                                                         <div class="form-group">
                                                             <label>
+                                                                <strong>Application Fee</strong>  <strong class="text-danger">*</strong>
+                                                            </label>
+                                                            <input id="applicationFee" type="text" class="form-control  pl-3"  placeholder="Enter application Fee" required>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-12 col-sm-12">
+                                                        <div class="form-group">
+                                                            <label>
                                                                 <strong>Category</strong>  <strong class="text-danger">*</strong>
                                                             </label>
                                                             <input id="isParent" type="text" class="form-control  pl-3"  value="true" readonly placeholder="category">
@@ -501,8 +510,11 @@
 
             var itemName = $('#itemName').val();
             var isParent = $("#isParent").val();
+            var applicationFee = $("#applicationFee").val();
 
-            if(itemName === "" || isParent ==="" ) {
+
+
+            if(itemName === "" || isParent ==="" || applicationFee ==="" ) {
                 swal({
                     title: "Required fields",
                     text:"Please Fill All Required Field",
@@ -517,12 +529,12 @@
                 url: "<?php echo url('billable-items')?>" ,
                 type: "POST",
                 headers:{'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                data: {itemName:itemName, isParent:isParent},
+                data: {itemName:itemName, isParent:isParent,applicationFee:applicationFee},
 
                 success:function(data){
                     $("#cform")[0].reset();
 
-                    console.log(data.success.message);
+                    //console.log(data.success.message);
                     $('#loader14').addClass('d-none');
                     $('#get-id').modal('hide');
                     location.reload();
@@ -546,9 +558,7 @@
                         text:data.success.message,
                         icon: "success",
                     });
-
                 }
-
             });
 
         })
@@ -588,7 +598,7 @@
                 success:function(data){
                     $("#cform1")[0].reset();
 
-                    console.log(data);
+                    //console.log(data);
                     $('#loader13').addClass('d-none');
                     $('#get-id').modal('hide');
                     //location.reload();

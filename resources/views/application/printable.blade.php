@@ -44,10 +44,8 @@
                             <div class="form-group col-md-12 col-lg-4 mt-2">
                                 <input type="text" class="form-control " id="billNo" placeholder="eg Enter your Business ID" value="{{ Session::get('billNo') }}" name="billNo" >
                             </div>
-
                             <div class="col-sm-12 pt-3">
                                 <button type="submit" class="btn btn-success"> <i class="fa fa-download"></i> Download receipt </button>
-
                             </div>
                         </form>
 
