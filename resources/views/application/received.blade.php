@@ -2,7 +2,7 @@
 
 @section('content')
     <section class="content">
-      <button class="float-right btn btn-outline-success d-none" onclick="myFunction()"> <i class="zmdi zmdi-account-add"></i> Applicantion Portal </button>
+      <button class="float-right btn btn-outline-success" onclick="myFunction()"> <i class="zmdi zmdi-account-add"></i> Applicantion Portal </button>
 
         <div class="content__inner">
           <h4 class="card-title">Applications</h4>

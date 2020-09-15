@@ -290,9 +290,6 @@
                                                             <input id="isParent" type="text" class="form-control  pl-3"  value="true" readonly placeholder="category">
                                                         </div>
                                                     </div>
-
-
-
                                                    </div>
 
                                                     <div class="col-12 submit-btn-container">

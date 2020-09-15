@@ -230,20 +230,26 @@
                 <li class="navigation__sub">
                     <a href="#"><i class="flaticon-paper"></i>Application  <i class="zmdi zmdi-caret-down drop-down-icon"></i></a>
                     <ul>
-                        <li><a href="{{ route('apply') }}">Application</a></li>
-                        <li><a href="{{ route('advert-plates') }}">Plate</a></li>
-                        <li><a href="bill-reversals.html">Bill reversals</a></li>
-                        <li><a href="bill-transfer.html">Bills Transfers</a></li>
+                        <li><a href="{{ route('apply') }}"><i class="flaticon-transfer mr-2"></i> Application</a></li>
+                        <li><a href="{{ route('get-applications')}}"><i class="flaticon-transfer mr-2"></i> Get Applications</a></li>
+                    </ul>
+                </li>
+                <li class="navigation__sub">
+                    <a href="#"><i class="flaticon-paper"></i>Apllications Statuses  <i class="zmdi zmdi-caret-down drop-down-icon"></i></a>
+                    <ul>
+                        <li><a href="{{ route('get-received') }}">Received</a></li>
+                    </ul>
+                </li>   <li class="navigation__sub">
+                    <a href="#"><i class="flaticon-paper"></i>Advertisement Plates  <i class="zmdi zmdi-caret-down drop-down-icon"></i></a>
+                    <ul>
+                        <li><a href="{{ route('advert-plates') }}">Get Plate</a></li>
                     </ul>
                 </li>
                 <li class="navigation__sub">
                     <a href="#"><i class="zmdi zmdi-settings"></i>Settings  <i class="zmdi zmdi-caret-down drop-down-icon"></i></a>
                     <ul>
                         <li><a href="{{ route('billable-items') }}"><i class="flaticon-undo mr-2"></i>Billable Items</a></li>
-
-                        <li><a href="{{ route('get-applications')}}"><i class="flaticon-transfer mr-2"></i>Get Applications</a></li>
-                        <li><a href="{{ route('get-applicant')}}"><i class="flaticon-transfer mr-2"></i>Get Applicant</a></li>
-                        <li><a href=""><i class="zmdi zmdi-edit mr-2"></i>Non Cash Edits</a></li>
+                        <li><a href="{{ route('get-statuses') }}"><i class="flaticon-undo mr-2"></i>Status</a></li>
                     </ul>
                 </li>
 

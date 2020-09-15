@@ -13,16 +13,16 @@
                            <li class="breadcrumb-item"><a href="{{ route('main') }}">Home</a></li>
                            <li class="breadcrumb-item"><a href="#">Application</a></li>
                            <li class="breadcrumb-item active">Plates</li>
-                       
+
                        </ol>
-                       
+
                    </div>
                </div>
                <div class="col-md-6 col-sm-12 text-right text-white"></div>
            </div>
        </header>
         <div class="content__inner">
-      
+
 
             <div class="card">
                 <div class="card-body">
@@ -35,9 +35,9 @@
                             <button class="btn btn-success float-right btn--icon-text" onclick="myFunction()"><i class="pe-7s-plus"></i> Advertisement Plate</button>
                         </div>
                     </div>
-                 
+
                      <div id="myDIV" style="display: none">
-                        <div class="row">                            
+                        <div class="row">
 
                             <div class="col-md-12">
                                 <form action="" method="post" novalidate>
@@ -92,7 +92,7 @@
                         <p class="alert alert-success d-none" id="msg-success"></p>
 
                         </div>
-                   
+
                     <div class="row pt-3">
                         <div class="col-12">
                             <div class="table-responsive" id="res-table">
@@ -103,16 +103,34 @@
                                         <th>plateNumber</th>
                                         <th>latLng</th>
                                         <th>street</th>
+                                        <th>createdBy</th>
+                                        <th>status</th>
+                                        <th>Date Created</th>
+                                        <th>Ad No.</th>
+                                        <th>Action</th>
                                     </tr>
                                     </thead>
                                     <tbody class="table-striped">
                                     @foreach ($getAdvertsPlates->data->Items as $key=>$item)
                                         <tr class="gradeX">
                                             <td>{{ $item->id }} </td>
-                                            <td>{{ $item->plateNumber }} </td>
+                                            <td>
+                                                <a href="{{ route('get-assigned', $item->plateNumber) }}" class="" role="button">{{ $item->plateNumber }}</a>
+                                            </td>
                                             <td>{{ $item->latLng }}</td>
                                             <td>{{ $item->street }}</td>
-    
+                                            <td>{{ $item->createdBy }}</td>
+                                            @if($item->status === "1")
+                                                <td>Empty</td>
+                                            @elseif ($item->status === "2")
+                                                 <td>Occupied</td>
+                                            @endif
+                                            <td>{{ $item->dateCreated }}</td>
+                                            <td>{{ $item->noOfAdverts }}</td>
+
+                                            <td>
+                                                <button class="btn btn-outline-info btnSelect" data-toggle="modal" data-target="#get-id"> <i class="zmdi zmdi-refresh"></i> Asign</button>
+                                            </td>
                                         </tr>
                                     @endforeach
                                     </tbody>
@@ -142,70 +160,30 @@
                         <div class="modal-body pt-3">
                             <div class="form-row">
                                 <div class="row">
-                                    <div class="col-md-12 d-none">
+                                    <div class="col-md-12">
                                         <div class="">
-                                            <label>ID <strong class="text-danger">*</strong></label>
+                                            <label>Plate Number <strong class="text-danger">*</strong></label>
                                             <div class="">
-                                                <input type="text" id="id" name="id" class="form-control the-id0" readonly>
+                                                <input type="text" id="plateNumber" name="plateNumber" class="form-control the-id1" readonly>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="col-md-12">
                                         <div class="">
-                                            <label>Testing Date <strong class="text-danger">*</strong></label>
-                                            <div class="select">
-                                                <input type="date"  id="testingDate" name="testingDate" class="form-control">
-                                                <i class="form-group__bar d-none"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <br><br>
-                                    <div class="col-md-12">
-                                        <div class="">
-                                            <label>Select Status <strong class="text-danger">*</strong></label>
-                                            <div class="select">
-                                                <select class="form-control" id="status">
-                                                    <option>--Select Status--</option>
-{{--                                                    @foreach($getInspectionStatus->data as $key => $value)--}}
-
-{{--                                                        <option value="{{  $value->id }}">{{  $value->status }}</option>--}}
-{{--                                                    @endforeach--}}
-                                                    </select>
-                                                        <i class="form-group__bar d-none"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <br><br>
-                                    <div class="col-md-12">
-                                        <div class="">
-                                            <label>Tester <strong class="text-danger">*</strong></label>
-                                            <div class="select">
-                                                <select class="form-control" id="testerId">
-                                                    <option>--Select Status--</option>
-{{--                                                    @foreach($getUsers->data as $key => $value)--}}
-{{--                                                        <option value="{{  $value->id }}">{{  $value->name }}</option>--}}
-{{--                                                    @endforeach--}}
-                                                    </select>
-                                                        <i class="form-group__bar d-none"></i>
+                                            <label>Advertisements Code <strong class="text-danger">*</strong></label>
+                                            <div class="">
+                                                <input type="text" id="advertisementsCode" name="advertisementsCode" class="form-control " >
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="col-md-12 mt-3">
-                                        <div class="">
-                                            <label>Tester Comments <strong class="text-danger">*</strong></label>
-                                            <textarea class="form-control alert alert-inverse" rows="5" id="testerComments" name="testerComments"
-                                                      placeholder="Tester comment" onclick="this.focus();this.select()"></textarea>
-                                            <i class="form-group__bar d-none"></i>
-                                        </div>
 
-                                    </div>
                                     <div class="col-md-12">
                                         <div class="">
-                                            <label>confirmed By<strong class="text-danger">*</strong></label>
+                                            <label>Created By<strong class="text-danger">*</strong></label>
                                             <div class="select">
-                                                <input type="text"  id="confirmedBy" name="confirmedBy" value="{{ Session::get('resource')[0]['user_full_name'] }}" readonly class="form-control">
+                                                <input type="text"  id="createdBy" name="createdBy" value="{{ Session::get('auth_session')[0]['user_full_name'] }}" readonly class="form-control">
                                                 <i class="form-group__bar d-none"></i>
                                             </div>
                                         </div>
@@ -217,7 +195,7 @@
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" class="btn btn-secondary" data-dismiss="modal"> <i class="zmdi zmdi-close-circle"></i> Close</button>
 
-                            <span type="submit" class="btn btn-success btn-confirm-booking">
+                            <span type="submit" class="btn btn-success btn-plate-asign">
                         <i class="zmdi zmdi-save"></i> Save changes</span>
                             <span class="d-none" id="loader14" >
                             <img src="{{ asset('img/loader/loader.gif') }}" style="size: 20px" />
@@ -248,6 +226,7 @@
                 var id_num=$(this).parent().siblings().eq(1).text();
                 var col3=$(this).parent().siblings().eq(3).text(); // get current row 3rd TD
 
+
                 var results=$(this).parent().siblings('.test-results').text();
                 var the_lab=$(this).parent().siblings('.the-lab').text();
                 var lab_val=0;
@@ -260,10 +239,10 @@
 
 
                 $('#get-id .modal-body .the-id0').val(col1);
-                $('#get-id .modal-body .the-id1').val(col2);
+                $('#get-id .modal-body .the-id1').val(id_num);
                 $('#get-id .modal-body .the-id2').val(col3);
 
-                $('#testTittle').html('<h4 class"mb-0"><strong> Suggested Date: '+col2+'</strong><hr></h4><span class="thin">Confirm the booking date to corporates.</span><p><strong>Business  Number:'+id_num+'</strong></p>');
+                $('#testTittle').html('<h4 class"mb-0"><strong> Plate Number: '+id_num+'</strong><hr></h4><span class="thin">Confirm the location.</span><p><strong>Longitude/Latitude:'  +col2+  '</strong></p>');
 
 
             });
@@ -319,21 +298,18 @@
     <script type="text/javascript">
         //getting selected test name
         // var test_name=$('#testNam').val();
-        $('.btn-confirm-booking').click(function(e){
+        $('.btn-plate-asign').click(function(e){
             e.preventDefault();
 
-            var id = $('#id').val();
-            var testingDate = $("#testingDate").val();
-            var testerComments = $("#testerComments").val();
-            var confirmedBy = $("#confirmedBy").val();
-            var status = $("#status").val();
-            var testerId = $("#testerId").val();
+            var plateNumber = $('#plateNumber').val();
+            var advertisementsCode = $("#advertisementsCode").val();
+            var createdBy = $("#createdBy").val();
 
 
 
 
 
-            if(testingDate === "" || confirmedBy ==="" || testerComments === "" || status === "" || testerId==="" ) {
+            if(createdBy === "" || advertisementsCode ==="" || plateNumber === ""  ) {
                 swal({
                     title: "Required fields",
                     text:"Please Fill All Required Field",
@@ -347,10 +323,10 @@
             $('#loader14').removeClass('d-none');
             $.ajax({
 
-                url: "save-booking-confirmation" ,
+                url: "save-plate-assignment" ,
                 type: "POST",
                 headers:{'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                data: {id:id, testingDate:testingDate, testerComments:testerComments, confirmedBy:confirmedBy,status:status, testerId:testerId},
+                data: {plateNumber:plateNumber, advertisementsCode:advertisementsCode, createdBy:createdBy},
 
                 success:function(data){
                     $("#cform")[0].reset();

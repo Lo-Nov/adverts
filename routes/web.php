@@ -52,5 +52,14 @@ Route::get('get-advert-receipt/{id}', 'MainController@getAdvertReceipt')->name('
 Route::get('adverts-printables/{id}', 'MainController@advertsPrints')->name('adverts-printables');
 Route::get('print-advert-bill/{billNo}', 'MainController@printAdvertBill')->name('print-advert-bill');
 Route::post('get-advert-receipt','MainController@AdvertReceipt')->name('get-advert-receipt');
+Route::get('get-received','MainController@getReceivedApplications')->name('get-received');
+Route::post('save-plate-assignment','MainController@savePlateAssignment')->name('save-plate-assignment');
+Route::get('assigned-plates','MainController@getAssignedPlates')->name('assigned-plates');
+Route::get('get-assigned/{plate}','MainController@getAssigned')->name('get-assigned');
+Route::get('get-statuses','MainController@getStatuses')->name('get-statuses');
+Route::post('add-status','MainController@addStatus')->name('add-status');
+Route::post('change-status','MainController@changeStatus')->name('change-status');
+Route::post('delete-status','MainController@deleteStatus')->name('delete-status');
+
 
 

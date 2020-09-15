@@ -9,6 +9,90 @@ use Illuminate\Support\Facades\Session;
 class MainController extends Controller
 {
 
+
+    public function deleteStatus(Request $request)
+    {
+        $url = $this->url = config('global.url');
+    $request->validate([
+        'id'=>'required',
+    ]);
+
+    $data = [
+        'function'=>'deleteApplicantsStatus',
+        'id'=>$request->id,
+    ];
+    //dd($data);
+    $deleteApplicantsStatus = json_decode($this->alex_to_curl($url, $data));
+    //dd($deleteApplicantsStatus);
+    return response()->json(['success'=>$deleteApplicantsStatus]);
+    }
+
+
+    public function changeStatus(Request $request)
+    {
+        $url = $this->url = config('global.url');
+    $request->validate([
+        'id'=>'required',
+        'status'=>'required',
+        'order'=>'required',
+        'applicationFee'=>'required',
+        'description'=>'required',
+    ]);
+
+    $data = [
+        'function'=>'updateApplicantsStatus',
+        'id'=>$request->id,
+        'status'=>$request->status,
+        'order'=>$request->order,
+        'applicationFee'=>$request->applicationFee,
+        'description'=>$request->description,
+    ];
+    //dd($data);
+    $updateApplicantsStatus = json_decode($this->alex_to_curl($url, $data));
+    //dd($updateApplicantsStatus);
+    return response()->json(['success'=>$updateApplicantsStatus]);
+    }
+    public function addStatus(Request $request)
+    {
+        $url = $this->url = config('global.url');
+    $request->validate([
+        'status'=>'required',
+        'order'=>'required',
+        'applicationFee'=>'required',
+        'description'=>'required',
+    ]);
+
+    $data = [
+        'function'=>'addApplicantsStatus',
+        'status'=>$request->status,
+        'order'=>$request->order,
+        'applicationFee'=>$request->applicationFee,
+        'description'=>$request->description,
+    ];
+    //dd($data);
+    $addApplicantsStatus = json_decode($this->alex_to_curl($url, $data));
+    //dd($addApplicantsStatus);
+    return response()->json(['success'=>$addApplicantsStatus]);
+    }
+    public function getStatuses()
+    {
+        if (Session::get('auth_session')[0]['logged_in'] != 1) {
+            Session::put('url', url()->current());
+            return redirect()->route('login');
+        } else {
+            $url = config('global.url');
+
+            $data = [
+                'function'=>'getApplicantsStatus',
+            ];
+            $this->data['getApplicantsStatus'] = json_decode($this->alex_to_curl($url, $data));
+            //dd($this->data);
+
+
+
+            return view('application.status')->with($this->data);
+        }
+    }
     public function AdvertReceipt(Request $request)
     {
         $url = config('global.url');
@@ -141,6 +225,71 @@ class MainController extends Controller
 
     }
 
+    public function getAssigned($plate)
+    {
+      if (Session::get('auth_session')[0]['logged_in'] != 1) {
+          Session::put('url', url()->current());
+          return redirect()->route('login');
+      } else {
+        $url = config('global.url');
+        $data = [
+            'function'=>'getPlateAssignment',
+            'plateNumber'=>$plate
+        ];
+          $this->data['getPlateAssignment'] = json_decode($this->alex_to_curl($url, $data));
+
+          //dd($this->data);
+          return view('application.assigned-plate')->with($this->data);
+      }
+
+    }
+
+    public function getAssignedPlates()
+    {
+      if (Session::get('auth_session')[0]['logged_in'] != 1) {
+          Session::put('url', url()->current());
+          return redirect()->route('login');
+      } else {
+        $url = config('global.url');
+        $data = [
+            'function'=>'getApplications',
+            'status'=>2
+        ];
+          $this->data['getApplications'] = json_decode($this->alex_to_curl($url, $data));
+          $url = config('global.url');
+          $data = [
+              'function'=>'getApplicantsStatus',
+          ];
+          $this->data['getApplicantsStatus'] = json_decode($this->alex_to_curl($url, $data));
+
+          return view('application.received')->with($this->data);
+      }
+
+    }
+
+    public function getReceivedApplications()
+    {
+      if (Session::get('auth_session')[0]['logged_in'] != 1) {
+          Session::put('url', url()->current());
+          return redirect()->route('login');
+      } else {
+        $url = config('global.url');
+        $data = [
+            'function'=>'getApplications',
+            'status'=>2
+        ];
+          $this->data['getApplications'] = json_decode($this->alex_to_curl($url, $data));
+          $url = config('global.url');
+          $data = [
+              'function'=>'getApplicantsStatus',
+          ];
+          $this->data['getApplicantsStatus'] = json_decode($this->alex_to_curl($url, $data));
+
+          return view('application.received')->with($this->data);
+      }
+
+    }
+
   public function getDemo(Request $request){
       $url = config('global.url');
 
@@ -154,6 +303,27 @@ class MainController extends Controller
       return response()->json($ward_info);
   }
 
+
+  public function savePlateAssignment(Request $request)
+  {
+    $url = $this->url = config('global.url');
+    $request->validate([
+        'plateNumber'=>'required',
+        'advertisementsCode'=>'required',
+        'createdBy'=>'required',
+    ]);
+
+    $data = [
+        'function'=>'plateAssignment',
+        'plateNumber'=>$request->plateNumber,
+        'advertisementsCode'=>$request->advertisementsCode,
+        'createdBy'=>$request->createdBy,
+    ];
+    //dd($data);
+    $plateAssignment = json_decode($this->alex_to_curl($url, $data));
+    //dd($child);
+    return response()->json(['success'=>$plateAssignment]);
+  }
 
 
   public function saveApplicant(Request $request)
@@ -190,6 +360,8 @@ class MainController extends Controller
     //dd($child);
     return response()->json(['success'=>$addApplicants]);
   }
+
+
   public function getApplicant()
   {
     if (Session::get('auth_session')[0]['logged_in'] != 1) {
@@ -269,12 +441,7 @@ class MainController extends Controller
             $data = [
                 'function'=>'getAdvertsPlates',
             ];
-
-
             $this->data['getAdvertsPlates'] = json_decode($this->alex_to_curl($url, $data));
-
-            //dd($this->data);
-
             return view('application.plates')->with($this->data);
         }
     }
