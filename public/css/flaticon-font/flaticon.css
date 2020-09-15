@@ -1,6 +1,6 @@
 	/*
   	Flaticon icon font: Flaticon
-  	Creation date: 21/08/2020 02:53
+  	Creation date: 15/09/2020 09:54
   	*/
 
 @font-face {
@@ -25,16 +25,19 @@
 [class^="flaticon-"]:before, [class*=" flaticon-"]:before,
 [class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
   font-family: Flaticon;
-        /* font-size: 20px; */
-font-style: normal;
+  font-style: normal;
 }
 
-.flaticon-bar-chart:before { content: "\f100"; }
-.flaticon-bill:before { content: "\f101"; }
-.flaticon-bill-1:before { content: "\f102"; }
-.flaticon-paper:before { content: "\f103"; }
-.flaticon-undo:before { content: "\f104"; }
-.flaticon-transfer:before { content: "\f105"; }
-.flaticon-register:before { content: "\f106"; }
-.flaticon-forgot:before { content: "\f107"; }
-.flaticon-add:before { content: "\f108"; }
+.flaticon-team:before { content: "\f100"; }
+.flaticon-marketing:before { content: "\f101"; }
+.flaticon-dropper:before { content: "\f102"; }
+.flaticon-doctor:before { content: "\f103"; }
+.flaticon-register:before { content: "\f104"; }
+.flaticon-question-mark:before { content: "\f105"; }
+.flaticon-poster:before { content: "\f106"; }
+.flaticon-ads:before { content: "\f107"; }
+.flaticon-advertising:before { content: "\f108"; }
+.flaticon-bill:before { content: "\f109"; }
+.flaticon-license-plate:before { content: "\f10a"; }
+.flaticon-question:before { content: "\f10b"; }
+.flaticon-recycle:before { content: "\f10c"; }

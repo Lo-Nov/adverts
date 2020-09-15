@@ -14941,11 +14941,11 @@ input:invalid {
     /* vertical-align: top; */
     height: 100%;
     /* background: red; */
-    padding-top: 9px;
+    /* padding-top: 9px; */
   }
 
   .form-control {
-    font-size: 12px;
+    /* font-size: 12px; */
     padding: 17px;
     border-radius: 1px;
     border-color: #BDBDBD;

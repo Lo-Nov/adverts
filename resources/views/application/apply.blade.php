@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-md-6 col-sm-12">
 							<span class="rev-title-container">
-							 <h1 class="text-capitalize stream_name m-0">Application</h1>
+							 <h1 class="text-capitalize stream_name m-0">New Application</h1>
 							</span>
                     <div class="">
                         <ol class="breadcrumb border-0">
@@ -62,6 +62,15 @@
                                         <div class="col-12 h-100 position-relative" >
                                             <div class="form-items w-100">
                                                 <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <label>
+                                                                <strong>Artwork</strong>  <strong class="text-danger">*</strong>
+                                                            </label>
+                                                            <input type="file" id="artwork"  name="artwork" class="form-group" required>
+                                                        </div>
+                                                    </div>
+
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label>
@@ -75,7 +84,7 @@
                                                         <div class="form-group">
                                                             <div class="form-group">
                                                                 <label>
-                                                                    <strong>category Name</strong>  <strong class="text-danger">*</strong>
+                                                                    <strong>Category Name</strong>  <strong class="text-danger">*</strong>
                                                                 </label>
                                                                 <select class="selectpicker form-control show-tick" id="parentId" name="parentId" data-live-search="true">
                                                                     <option data-tokens="select">-- Select Category Name--</option>
@@ -101,7 +110,7 @@
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label>
-                                                                <strong>physicalAddress</strong>  <strong class="text-danger">*</strong>
+                                                                <strong>Physical Address</strong>  <strong class="text-danger">*</strong>
                                                             </label>
                                                             <select  id="physicalAddress" name="physicalAddress" class="first-required form-control">
 
@@ -134,7 +143,7 @@
                                                     </div>
 
 
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-3 pr-0">
                                                         <div class="form-group">
                                                             <label>
                                                                 <strong>Dimensions</strong>  <strong class="text-danger">*</strong>
@@ -143,7 +152,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-3 pl-0">
                                                         <div class="form-group">
                                                             <label>
                                                                 <strong>Dimensions Units</strong>  <strong class="text-danger">*</strong>
@@ -156,7 +165,7 @@
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-3 pr-0">
                                                         <div class="form-group">
                                                             <label>
                                                                 <strong>Duration</strong>  <strong class="text-danger">*</strong>
@@ -167,7 +176,7 @@
 
 
 
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-3 pl-0">
                                                         <div class="form-group">
                                                             <label>
                                                                 <strong>Duration Unit</strong>  <strong class="text-danger">*</strong>
@@ -182,14 +191,7 @@
                                                     </div>
 
 
-                                                    <div class="col-md-4">
-                                                        <div class="form-group">
-                                                            <label>
-                                                                <strong>Artwork</strong>  <strong class="text-danger">*</strong>
-                                                            </label>
-                                                            <input type="file" id="artwork"  name="artwork" class="form-group" required>
-                                                        </div>
-                                                    </div>
+                                                    
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label>
