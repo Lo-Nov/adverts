@@ -442,6 +442,13 @@ class MainController extends Controller
                 'function'=>'getAdvertsPlates',
             ];
             $this->data['getAdvertsPlates'] = json_decode($this->alex_to_curl($url, $data));
+
+            $url = config('global.url');
+            $data = [
+                'function'=>'getApplications',
+                'status'=>2
+            ];
+            $this->data['getApplications'] = json_decode($this->alex_to_curl($url, $data));
             return view('application.plates')->with($this->data);
         }
     }

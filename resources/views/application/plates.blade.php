@@ -173,7 +173,12 @@
                                         <div class="">
                                             <label>Advertisements Code <strong class="text-danger">*</strong></label>
                                             <div class="">
-                                                <input type="text" id="advertisementsCode" name="advertisementsCode" class="form-control " >
+                                                <select  id="advertisementsCode" name="advertisementsCode" class="first-required form-control  ">
+                                                    <option >-- Application advertisementsCode --</option>
+                                                    @foreach ($getApplications->data as $item)
+                                                        <option value="{{ $item->advertisementsCode }}">{{ $item->advertisementsCode }} </option>
+                                                    @endforeach
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
