@@ -10,7 +10,7 @@
                 <div class="col-6 col-md-7 col-sm-12  p-0 m-0 hidden-sm">
                     <div class="login-bg">
                         <div class="banner-content fx">
-                            <h2 class="animation text-white" data-animation="fadeInUp" data-animation-delay="0.6s"><strong>Welcome To {{ config('global.county') }} County</strong></h2>
+                            <h2 class="animation text-white" data-animation="fadeInUp" data-animation-delay="0.6s"><strong>{{ config('global.county') }} Adverts</strong></h2>
                             <div class="animation" data-animation="fadeInDown" data-animation-delay="0.6s">
                                 <h2 class="text-white"><span>Sign In To continue</span></h2>
                             </div>
