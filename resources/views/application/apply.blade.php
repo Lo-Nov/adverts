@@ -28,7 +28,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>
-                                        <strong> Choose your Physical Address</strong>  <strong class="text-danger">*</strong>
+                                        <strong> Choose your Physical Address  <code>e.g Free Area Nakuru</code>  </strong>  <strong class="text-danger">*</strong>
                                     </label>
                                     <input type="text" class="form-control  pl-3" placeholder="Enter your location and press Enter" id="address" onchange="myFunction()">
                                         <span class="d-none" id="loader14" >
@@ -54,9 +54,7 @@
                                         </div>
                                     @endif
 
-                                    @if($errors->any())
-                                        <p class="alert alert-danger mt-3">{{$errors->first()}}</p>
-                                    @endif
+
                                     <form action="{{ route('post-apply') }}" method="post" class= "animated" enctype="multipart/form-data">
                                         @csrf
                                         <div class="col-12 h-100 position-relative" >
@@ -76,7 +74,7 @@
                                                             <label>
                                                                 <strong>Advert Code</strong>  <strong class="text-danger">*</strong>
                                                             </label>
-                                                            <input type="text" class="form-control  pl-3" placeholder="Enter uniqueAdvertCode" id="uniqueAdvertCode" name="uniqueAdvertCode" required>
+                                                            <input type="text" class="form-control  pl-3" value="10-8484"  placeholder="Enter uniqueAdvertCode" id="uniqueAdvertCode" name="uniqueAdvertCode" required>
                                                         </div>
                                                     </div>
 
@@ -191,7 +189,7 @@
                                                     </div>
 
 
-                                                    
+
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label>

@@ -223,7 +223,7 @@
             </div>
 
             <ul class="navigation">
-                <li class="navigation__active"><a href="{{ route('main') }}"><i class="flaticon-marketing"></i>Dashboard</a></li>                
+                <li class="navigation__active"><a href="{{ route('main') }}"><i class="flaticon-marketing"></i>Dashboard</a></li>
 
                 <li class="navigation__sub">
                     <a href="#"><i class="flaticon-register"></i>Application  <i class="zmdi zmdi-caret-down drop-down-icon"></i></a>
@@ -248,6 +248,7 @@
                     <ul>
                         <li><a href="{{ route('billable-items') }}"><i class="flaticon-bill mr-2"></i>Billable Items</a></li>
                         <li><a href="{{ route('get-statuses') }}"><i class="flaticon-question mr-2"></i>Status</a></li>
+                        <li><a href="{{ route('get-applicant') }}"><i class="flaticon-question mr-2"></i>Applicant</a></li>
                     </ul>
                 </li>
 

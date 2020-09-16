@@ -62,4 +62,6 @@ Route::post('change-status','MainController@changeStatus')->name('change-status'
 Route::post('delete-status','MainController@deleteStatus')->name('delete-status');
 
 
+//Receipt
+Route::post('pull-receipt','MainController@pullReceipt')->name('pull-receipt');
 

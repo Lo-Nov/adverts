@@ -59,7 +59,7 @@
 
                     </div>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer d-none">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
@@ -93,7 +93,7 @@
                             <div class="col-sm-12 col-md-6 col-lg-6">
                                 <p class="text-capitalize mb-1"><strong>Application has been made succesfully</strong></p>
                                 <span class="mb-5"><small>You can pay for the bill now instantly via M-PESA or print the bill and pay for it later</small></span>
-                                <p class="mb-0 p-0 mt-5">Food handlers total application is fee is</p>
+                                <p class="mb-0 p-0 mt-5">Advert application total application is fee is</p>
                                 <h4 class="mt-0 pt-0">KES <span id="bill_amount">{{  number_format($getFoodHygieneBill->data->billTotal,2) }}</span></h4>
                                 <!--					  pay via mpesa now-->
                                 <div class="col-sm-12 pl-0 d-none" id="print-receipt">

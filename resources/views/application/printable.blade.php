@@ -15,8 +15,6 @@
 
     <div class="container">
 
-
-
         <div class="row p-5 ">
             <div class="service-form-container  flex-column-md animated col-12 p-0">
                 <div class="col-12 service-form-img-container" id="health-img" style="height: 169px;">
@@ -39,10 +37,11 @@
                                 </ul>
                             </div>
                         @endif
-                        <form action="" target="_blank" method="post" class="transaction-form p-0 w-100 row">
+
+                        <form action="{{  route('pull-receipt') }}" target="_blank" method="post" class="transaction-form p-0 w-100 row">
                             @csrf
                             <div class="form-group col-md-12 col-lg-4 mt-2">
-                                <input type="text" class="form-control " id="billNo" placeholder="eg Enter your Business ID" value="{{ Session::get('billNo') }}" name="billNo" >
+                                <input type="hidden" class="form-control " id="billNo" placeholder="eg Enter your Business ID" value="{{ Session::get('billNo') }}" name="billNo" >
                             </div>
                             <div class="col-sm-12 pt-3">
                                 <button type="submit" class="btn btn-success"> <i class="fa fa-download"></i> Download receipt </button>

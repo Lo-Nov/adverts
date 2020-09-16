@@ -310,6 +310,19 @@
 
                                                    <div class="form-items row">
                                                     <div class="col-md-12 col-sm-12">
+                                                        <div class="form-group">
+                                                            <label>
+                                                                <strong>Category</strong>  <strong class="text-danger">*</strong>
+                                                            </label>
+                                                            <select class="selectpicker form-control show-tick" id="parentId" data-live-search="true">
+                                                                <option data-tokens="select">-- Select Category--</option>
+                                                                @foreach($getCategories->data as $item)
+                                                                    <option value="{{ $item->parentId }}">{{ $item->itemName }}</option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 col-sm-12">
                                                         <div class="row">
                                                             <div class="col-md-6 col-sm-12">
                                                                 <div class="form-group">
@@ -355,19 +368,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-md-6 col-sm-12">
-                                                        <div class="form-group">
-                                                            <label>
-                                                                <strong>Category</strong>  <strong class="text-danger">*</strong>
-                                                            </label>
-                                                            <select class="selectpicker form-control show-tick" id="parentId" data-live-search="true">
-                                                                <option data-tokens="select">-- Select Category--</option>
-                                                                @foreach($getCategories->data as $item)
-                                                                    <option value="{{ $item->parentId }}">{{ $item->itemName }}</option>
-                                                                @endforeach
-                                                            </select>
-                                                        </div>
-                                                    </div>
+
 
                                                     <div class="col-md-6 col-sm-12">
                                                         <div class="form-group">

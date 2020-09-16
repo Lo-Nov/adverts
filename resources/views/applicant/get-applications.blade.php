@@ -179,7 +179,9 @@
                                         <td>{{ $item->applicantID }}</td>
                                         <td>{{ $item->dimensions }} {{  $item->dimensionsUnits }}</td>
                                         <td>{{ $item->duration }} {{  $item->durationUnit }}</td>
-                                        <td>{{ $item->status }}</td>
+                                        @if($item->status == 1)
+                                        <td style="color:rgba(0, 9, 128, 0.644)"> New</td>
+                                        @endif
                                         <td>
                                             <button class="btn btn-primary btnSelect btn-sm" data-toggle="modal" data-target="#get-id"> <i class="zmdi zmdi-refresh"></i> Update</button>
                                         </td>

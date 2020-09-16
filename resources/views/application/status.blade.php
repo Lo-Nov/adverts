@@ -442,7 +442,7 @@
 
                 var  id = $('#id1').val();
 
-                alert(id);
+                // alert(id);
 
                 if(id === "" ) {
                     swal({

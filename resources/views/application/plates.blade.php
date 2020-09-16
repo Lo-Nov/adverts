@@ -176,7 +176,7 @@
                                                 <select  id="advertisementsCode" name="advertisementsCode" class="first-required form-control  ">
                                                     <option >-- Application advertisementsCode --</option>
                                                     @foreach ($getApplications->data as $item)
-                                                        <option value="{{ $item->advertisementsCode }}">{{ $item->advertisementsCode }} </option>
+                                                        <option value="{{ $item->advertisementsCode }}">{{ $item->categoryName }} </option>
                                                     @endforeach
                                                 </select>
                                             </div>

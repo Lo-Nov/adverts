@@ -9,6 +9,23 @@ use Illuminate\Support\Facades\Session;
 class MainController extends Controller
 {
 
+    public function pullReceipt(Request $request)
+    {
+        $url = $this->url = config('global.url');
+        $request->validate([
+            'billNo'=>'required',
+        ]);
+
+        $data = [
+            'function'=>'getAdvertReceipt',
+            'billNo'=>$request->billNo,
+        ];
+        //dd($data);
+
+        $receipt['receipt'] = json_decode($this->alex_to_curl($url, $data));
+        //dd($receipt);
+        return view('application.naks-receipt')->with($receipt);
+    }
 
     public function deleteStatus(Request $request)
     {
