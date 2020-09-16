@@ -5,7 +5,7 @@
       <button class="float-right btn btn-outline-success d-none" onclick="myFunction()"> <i class="zmdi zmdi-account-add"></i> Applicantion Portal </button>
 
         <div class="content__inner">
-          <h4 class="card-title">Applications</h4>
+          <h4 class="card-title">Running Applications</h4>
             <div class="card">
 
                 <div class="card-body">
@@ -151,23 +151,23 @@
                     <div class="row">
                         <div class="col-md-12">
                         <div class="table-responsive" id="res-table">
-                            <table class="table table-hover" id="data-table">
-                                <thead class="thead-default">
+                            <table class="table table-hover table-striped table-sm" id="data-table">
+                                <thead class="">
                                 <tr>
                                     <th class="d-none">Id</th>
                                     <th class="d-none">artwork</th>
-                                    <th>advertisementsCode</th>
-                                    <th>uniqueAdvertCode</th>
-                                    <th>categoryName</th>
+                                    <th>Advertisements Code</th>
+                                    <th>unique Advert Code</th>
+                                    <th>Category Name</th>
                                     <th class="d-none">latLng</th>
-                                    <th>applicantID</th>
-                                    <th>dimensions</th>
-                                    <th>duration</th>
+                                    <th>Applicant ID</th>
+                                    <th>Dimensions</th>
+                                    <th>Duration</th>
                                     <th>status</th>
                                     <th>Update Status</th>
                                 </tr>
                                 </thead>
-                                <tbody class="table-striped">
+                                <tbody class="">
                                 @foreach ($getApplications->data as $key=>$item)
                                     <tr class="gradeX">
                                         <td class="d-none">{{ $item->id }} </td>
@@ -181,7 +181,7 @@
                                         <td>{{ $item->duration }} {{  $item->durationUnit }}</td>
                                         <td>{{ $item->status }}</td>
                                         <td>
-                                            <button class="btn btn-outline-success btnSelect" data-toggle="modal" data-target="#get-id"> <i class="zmdi zmdi-refresh"></i> Update</button>
+                                            <button class="btn btn-primary btnSelect btn-sm" data-toggle="modal" data-target="#get-id"> <i class="zmdi zmdi-refresh"></i> Update</button>
                                         </td>
 
                                     </tr>
@@ -208,6 +208,9 @@
 
                     <form id="cform">
                         <div class="modal-body pt-3">
+                            <div class="card">
+                                <div class="card-img-top" src="demo/img/demo-poster.png" alt="The artwork">
+                            </div>
                             <div class="col-12 p-4 bg-info-yellow text-black mb-4">
                                 <iframe width="100" height="100" :src="'https://biller.revenuesure.co.ke/adverts/uploads/'+the-id0" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
                             </div>
