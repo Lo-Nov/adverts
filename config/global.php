@@ -5,7 +5,7 @@ return [
     'title'=>'Adverts | Nakuru county Government',
     'auth'=>'https://www.revenuesure.co.ke/RevenueSure/api/',
     'sub_counties'=>'https://biller.revenuesure.co.ke/permit/api',
-    'county'=>'NAKURU COUNTY GOVERNMENT',
+    'county'=>'Nakuru county government',
     'bill'=>'Adverts | Nakuru Bill'
 ];
 

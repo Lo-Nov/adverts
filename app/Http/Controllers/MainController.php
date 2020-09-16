@@ -536,9 +536,9 @@ class MainController extends Controller
 
         $this->data['getFoodHygieneBill'] = json_decode($response->body());
         //dd($this->data);
-        Session::put('billNo', $this->data['getFoodHygieneBill']->data->billNo);
 
         if ($this->data['getFoodHygieneBill']->success === true){
+        Session::put('billNo', $this->data['getFoodHygieneBill']->data->billNo);
             return view('application.bill')->with($this->data);
         }else{
             return redirect()->back()->withErrors('error', $this->data['getFoodHygieneBill']->message);
