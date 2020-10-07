@@ -524,7 +524,7 @@ class MainController extends Controller
             'duration'=>'required',
             'durationUnit'=>'required',
             'artwork'=>'required',
-            'subCountyId'=>'required',
+            'subCountyId'=>'required', 
             'wardID'=>'required'
         ]);
 
